@@ -1,0 +1,414 @@
+{
+  "dates": {
+    "maximum": "2023-08-21",
+    "minimum": "2023-08-04"
+  },
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/nHf61UzkfFno5X1ofIhugCPus2R.jpg",
+      "genre_ids": [
+        35,
+        12,
+        14
+      ],
+      "id": 346698,
+      "original_language": "en",
+      "original_title": "Barbie",
+      "overview": "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.",
+      "popularity": 4587.093,
+      "poster_path": "/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg",
+      "release_date": "2023-07-19",
+      "title": "Barbie",
+      "video": false,
+      "vote_average": 7.6,
+      "vote_count": 1491
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/2vFuG6bWGyQUzYS9d69E5l85nIz.jpg",
+      "genre_ids": [
+        28,
+        12,
+        878
+      ],
+      "id": 667538,
+      "original_language": "en",
+      "original_title": "Transformers: Rise of the Beasts",
+      "overview": "When a new threat capable of destroying the entire planet emerges, Optimus Prime and the Autobots must team up with a powerful faction known as the Maximals. With the fate of humanity hanging in the balance, humans Noah and Elena will do whatever it takes to help the Transformers as they engage in the ultimate battle to save Earth.",
+      "popularity": 4266.664,
+      "poster_path": "/gPbM0MK8CP8A174rmUwGsADNYKD.jpg",
+      "release_date": "2023-06-06",
+      "title": "Transformers: Rise of the Beasts",
+      "video": false,
+      "vote_average": 7.5,
+      "vote_count": 2018
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/14GEZCzCGhV7FMFaWi4Ec22Kcai.jpg",
+      "genre_ids": [
+        16,
+        12,
+        10751,
+        14
+      ],
+      "id": 459003,
+      "original_language": "uk",
+      "original_title": "Мавка: Лісова пісня",
+      "overview": "Mavka — a Soul of the Forest and its Warden — faces an impossible choice between love and her duty as guardian to the Heart of the Forest, when she falls in love with a human — the talented young musician Lukas.",
+      "popularity": 1719.661,
+      "poster_path": "/eeJjd9JU2Mdj9d7nWRFLWlrcExi.jpg",
+      "release_date": "2023-03-02",
+      "title": "Mavka: The Forest Song",
+      "video": false,
+      "vote_average": 7.5,
+      "vote_count": 155
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg",
+      "genre_ids": [
+        18,
+        36
+      ],
+      "id": 872585,
+      "original_language": "en",
+      "original_title": "Oppenheimer",
+      "overview": "The story of J. Robert Oppenheimer’s role in the development of the atomic bomb during World War II.",
+      "popularity": 1108.337,
+      "poster_path": "/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+      "release_date": "2023-07-19",
+      "title": "Oppenheimer",
+      "video": false,
+      "vote_average": 8.4,
+      "vote_count": 893
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/cSYLX73WskxCgvpN3MtRkYUSj1T.jpg",
+      "genre_ids": [
+        16,
+        35,
+        10751,
+        14,
+        10749
+      ],
+      "id": 976573,
+      "original_language": "en",
+      "original_title": "Elemental",
+      "overview": "In a city where fire, water, land and air residents live together, a fiery young woman and a go-with-the-flow guy will discover something elemental: how much they have in common.",
+      "popularity": 971.368,
+      "poster_path": "/8riWcADI1ekEiBguVB9vkilhiQm.jpg",
+      "release_date": "2023-06-14",
+      "title": "Elemental",
+      "video": false,
+      "vote_average": 7.6,
+      "vote_count": 638
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/2iNUodSKykQ4VtvtG280ntNy7hB.jpg",
+      "genre_ids": [
+        28,
+        878,
+        27
+      ],
+      "id": 615656,
+      "original_language": "en",
+      "original_title": "Meg 2: The Trench",
+      "overview": "An exploratory dive into the deepest depths of the ocean of a daring research team spirals into chaos when a malevolent mining operation threatens their mission and forces them into a high-stakes battle for survival.",
+      "popularity": 451.16,
+      "poster_path": "/4m1Au3YkjqsxF8iwQy0fPYSxE0h.jpg",
+      "release_date": "2023-08-02",
+      "title": "Meg 2: The Trench",
+      "video": false,
+      "vote_average": 0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/ie2IAAPq5464uEmiMsabQExYmrD.jpg",
+      "genre_ids": [
+        16,
+        12,
+        14,
+        878
+      ],
+      "id": 667717,
+      "original_language": "zh",
+      "original_title": "深海",
+      "overview": "Shenxiu has felt a deep sadness since her mother left. A storm plunges her into a dreamlike, 3D world of swirling colour. Led by the Hyjinx, and joined by inventive underwater chef Nanhe, she embarks on a quest to find solace in the Eye of the Deep Sea.",
+      "popularity": 456.534,
+      "poster_path": "/znSKKjTpwnFmlieJtnlLoI6McKK.jpg",
+      "release_date": "2023-01-22",
+      "title": "Deep Sea",
+      "video": false,
+      "vote_average": 7.7,
+      "vote_count": 26
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/8FhKnPpql374qyyHAkZDld93IUw.jpg",
+      "genre_ids": [
+        9648,
+        53,
+        878
+      ],
+      "id": 536437,
+      "original_language": "en",
+      "original_title": "Hypnotic",
+      "overview": "A detective becomes entangled in a mystery involving his missing daughter and a secret government program while investigating a string of reality-bending crimes.",
+      "popularity": 419.129,
+      "poster_path": "/3IhGkkalwXguTlceGSl8XUJZOVI.jpg",
+      "release_date": "2023-05-11",
+      "title": "Hypnotic",
+      "video": false,
+      "vote_average": 6.5,
+      "vote_count": 347
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/iEFuHjqrE059SmflBva1JzDJutE.jpg",
+      "genre_ids": [
+        16,
+        10751,
+        28,
+        14,
+        10749
+      ],
+      "id": 496450,
+      "original_language": "fr",
+      "original_title": "Miraculous - le film",
+      "overview": "A life of an ordinary Parisian teenager Marinette goes superhuman when she becomes Ladybug. Bestowed with magical powers of creation, Ladybug must unite with her opposite, Cat Noir, to save Paris as a new villain unleashes chaos unto the city.",
+      "popularity": 380.75,
+      "poster_path": "/dQNJ8SdCMn3zWwHzzQD2xrphR1X.jpg",
+      "release_date": "2023-07-05",
+      "title": "Miraculous: Ladybug & Cat Noir, The Movie",
+      "video": false,
+      "vote_average": 7.8,
+      "vote_count": 57
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/6t73wgs5t3sExwdUyjGJQBwU969.jpg",
+      "genre_ids": [
+        35,
+        14,
+        27
+      ],
+      "id": 616747,
+      "original_language": "en",
+      "original_title": "Haunted Mansion",
+      "overview": "A woman and her son enlist a motley crew of so-called spiritual experts to help rid their home of supernatural squatters.",
+      "popularity": 251.489,
+      "poster_path": "/jUjg01KWd11nycbtXhJKghZFD7V.jpg",
+      "release_date": "2023-07-26",
+      "title": "Haunted Mansion",
+      "video": false,
+      "vote_average": 7.2,
+      "vote_count": 25
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/lDCIQ1Qe7cRnhZ4ybQVVEbadMZ.jpg",
+      "genre_ids": [
+        27,
+        53
+      ],
+      "id": 1008042,
+      "original_language": "en",
+      "original_title": "Talk to Me",
+      "overview": "When a group of friends discover how to conjure spirits using an embalmed hand, they become hooked on the new thrill, until one of them goes too far and unleashes terrifying supernatural forces.",
+      "popularity": 242.374,
+      "poster_path": "/kdPMUMJzyYAc4roD52qavX0nLIC.jpg",
+      "release_date": "2023-07-24",
+      "title": "Talk to Me",
+      "video": false,
+      "vote_average": 7.4,
+      "vote_count": 25
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/qElNES0sHVQcbzvGrTx7ccpGzij.jpg",
+      "genre_ids": [
+        878,
+        28,
+        18
+      ],
+      "id": 842675,
+      "original_language": "zh",
+      "original_title": "流浪地球2",
+      "overview": "Humans built huge engines on the surface of the earth to find a new home. But the road to the universe is perilous. In order to save earth, young people once again have to step forward to start a race against time for life and death.",
+      "popularity": 202.898,
+      "poster_path": "/pR858ihc6Ls9xohpdRJVjV787ml.jpg",
+      "release_date": "2023-01-22",
+      "title": "The Wandering Earth II",
+      "video": false,
+      "vote_average": 7.2,
+      "vote_count": 294
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/xkXsV1WOiKfAJ6dzXiavdwsZ3E2.jpg",
+      "genre_ids": [
+        28,
+        53,
+        27
+      ],
+      "id": 799379,
+      "original_language": "ko",
+      "original_title": "늑대사냥",
+      "overview": "While under heavily armed guard, the dangerous convicts aboard a cargo ship unite in a coordinated escape attempt that soon escalates into a bloody, all-out riot. But as the fugitives continue their brutal campaign of terror, they soon discover that not even the most vicious among them is safe from the horror they unknowingly unleashed from the darkness below deck.",
+      "popularity": 208.831,
+      "poster_path": "/dniWicB6fa7NvpGbguxWlNPMc5f.jpg",
+      "release_date": "2022-09-21",
+      "title": "Project Wolf Hunting",
+      "video": false,
+      "vote_average": 6.4,
+      "vote_count": 201
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/c6Splshb8lb2Q9OvUfhpqXl7uP0.jpg",
+      "genre_ids": [
+        28,
+        53
+      ],
+      "id": 717930,
+      "original_language": "en",
+      "original_title": "Kandahar",
+      "overview": "After his mission is exposed, an undercover CIA operative stuck deep in hostile territory in Afghanistan must fight his way out, alongside his Afghan translator, to an extraction point in Kandahar, all whilst avoiding elite enemy forces and foreign spies tasked with hunting them down.",
+      "popularity": 183.457,
+      "poster_path": "/lCanGgsqF4xD2WA5NF8PWeT3IXd.jpg",
+      "release_date": "2023-05-25",
+      "title": "Kandahar",
+      "video": false,
+      "vote_average": 6.5,
+      "vote_count": 260
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/wD2kUCX1Bb6oeIb2uz7kbdfLP6k.jpg",
+      "genre_ids": [
+        27,
+        53
+      ],
+      "id": 980078,
+      "original_language": "en",
+      "original_title": "Winnie the Pooh: Blood and Honey",
+      "overview": "Christopher Robin is headed off to college and he has abandoned his old friends, Pooh and Piglet, which then leads to the duo embracing their inner monsters.",
+      "popularity": 156.839,
+      "poster_path": "/ewF3IlGscc7FjgGEPcQvZsAsgAW.jpg",
+      "release_date": "2023-01-27",
+      "title": "Winnie the Pooh: Blood and Honey",
+      "video": false,
+      "vote_average": 5.6,
+      "vote_count": 737
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/sbtJ1SxJ1CIvttQqhGbUZcDpSqC.jpg",
+      "genre_ids": [
+        35,
+        18
+      ],
+      "id": 747188,
+      "original_language": "en",
+      "original_title": "Asteroid City",
+      "overview": "In an American desert town circa 1955, the itinerary of a Junior Stargazer/Space Cadet convention is spectacularly disrupted by world-changing events.",
+      "popularity": 137.042,
+      "poster_path": "/tcKBclNUdkas4Jis8RYYZnPdTIm.jpg",
+      "release_date": "2023-06-09",
+      "title": "Asteroid City",
+      "video": false,
+      "vote_average": 6.7,
+      "vote_count": 484
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/pEDXiMgHC3Mi3EhW0UtGwIeCn6F.jpg",
+      "genre_ids": [
+        28,
+        878
+      ],
+      "id": 565770,
+      "original_language": "en",
+      "original_title": "Blue Beetle",
+      "overview": "Recent college grad Jaime Reyes returns home full of aspirations for his future, only to find that home is not quite as he left it. As he searches to find his purpose in the world, fate intervenes when Jaime unexpectedly finds himself in possession of an ancient relic of alien biotechnology: the Scarab.",
+      "popularity": 112.337,
+      "poster_path": "/lZ2sOCMCcGaPppaXj0Wiv0S7A08.jpg",
+      "release_date": "2023-08-16",
+      "title": "Blue Beetle",
+      "video": false,
+      "vote_average": 0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/jg1UcvnzTiLNOdzYnmrroDkQYbM.jpg",
+      "genre_ids": [
+        16,
+        12,
+        35,
+        10751,
+        14
+      ],
+      "id": 681303,
+      "original_language": "de",
+      "original_title": "Meine Chaosfee & Ich",
+      "overview": "Violetta (337), a curious and cheeky fairy, gets lost in the human world. To find her way back to the fairy world, she teams up with the human girl Maxie (12) and discovers her true destiny.",
+      "popularity": 134.116,
+      "poster_path": "/wXsCtzppdU1SUvTtxznJyi9hiXv.jpg",
+      "release_date": "2022-10-13",
+      "title": "My Fairy Troublemaker",
+      "video": false,
+      "vote_average": 7.4,
+      "vote_count": 21
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/zYdTGqWIup2SMg6A8ZpeLuvCpiy.jpg",
+      "genre_ids": [
+        16,
+        35,
+        28,
+        10751,
+        878
+      ],
+      "id": 614930,
+      "original_language": "en",
+      "original_title": "Teenage Mutant Ninja Turtles: Mutant Mayhem",
+      "overview": "After years of being sheltered from the human world, the Turtle brothers set out to win the hearts of New Yorkers and be accepted as normal teenagers through heroic acts. Their new friend April O'Neil helps them take on a mysterious crime syndicate, but they soon get in over their heads when an army of mutants is unleashed upon them.",
+      "popularity": 123.809,
+      "poster_path": "/gyh0eECE2IqrW8GWl3KoHBfc45j.jpg",
+      "release_date": "2023-07-31",
+      "title": "Teenage Mutant Ninja Turtles: Mutant Mayhem",
+      "video": false,
+      "vote_average": 0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/qwMSnVhWcVfa769D5NbgjgPwRil.jpg",
+      "genre_ids": [
+        18,
+        35
+      ],
+      "id": 848958,
+      "original_language": "fr",
+      "original_title": "Les Amandiers",
+      "overview": "At the end of the 1980s, Stella, Victor, Adèle and Etienne are 20 years old. They take the entrance exam to the famous acting school created by Patrice Chéreau and Pierre Romans at the Théâtre des Amandiers in Nanterre. Launched at full speed into life, passion, and love, together they will experience the turning point of their lives, but also their first tragedy.",
+      "popularity": 111.142,
+      "poster_path": "/oFNR1R5PTQFC5j6EZRMv2TpeHco.jpg",
+      "release_date": "2022-11-16",
+      "title": "Forever Young",
+      "video": false,
+      "vote_average": 6.7,
+      "vote_count": 89
+    }
+  ],
+  "total_pages": 15,
+  "total_results": 296
+}

@@ -1,0 +1,62 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.devtools.ksp'
+    id 'kotlin-kapt'
+}
+
+def properties = new Properties()
+properties.load(project.rootProject.file("local.properties").newDataInputStream())
+
+android {
+    namespace 'com.android.dev.engineer.kotlin.compose.data'
+
+    defaultConfig {
+        buildConfigField "String", "API_KEY", "\"${properties.getProperty("api_key")}\""
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        buildConfig = true // This will be false by default in AGP 8.X
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true // Robolectric config: https://robolectric.org/getting-started
+        }
+    }
+}
+
+kapt {
+    correctErrorTypes = true // Hilt config: https://developer.android.com/training/dependency-injection/hilt-android#setup
+}
+
+dependencies {
+    implementation libs.coroutines
+    implementation libs.retrofit
+    implementation libs.retrofit.converter
+    implementation libs.moshi
+    ksp libs.moshi.codegen
+    implementation libs.okhttp
+    implementation libs.datastore
+    implementation libs.crypto
+    implementation libs.timber
+    debugImplementation(libs.chucker) {
+        exclude group: libs.coroutines.get().group
+    }
+    releaseImplementation libs.chucker.no.op
+    implementation libs.hilt.android
+    kapt libs.hilt.android.compiler
+
+    testImplementation libs.test.junit
+    testImplementation libs.test.coroutines
+    testImplementation libs.test.robolectric
+    testImplementation libs.test.core.ktx
+    testImplementation libs.test.mockwebserver
+
+    androidTestImplementation libs.test.androix.junit
+    androidTestImplementation libs.test.junit
+    androidTestImplementation libs.test.coroutines
+    androidTestImplementation libs.test.core.ktx
+    androidTestImplementation libs.test.runner
+}

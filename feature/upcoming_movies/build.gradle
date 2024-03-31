@@ -1,0 +1,52 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
+    id 'app.cash.paparazzi'
+}
+
+android {
+    namespace 'com.android.dev.engineer.kotlin.compose.feature.upcoming_movies'
+
+    buildFeatures {
+        compose true
+    }
+
+    defaultConfig {
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion libs.versions.compose.compiler.get()
+    }
+}
+
+kapt {
+    correctErrorTypes = true // Hilt config: https://developer.android.com/training/dependency-injection/hilt-android#setup
+}
+
+dependencies {
+    implementation project(':data')
+    implementation project(':ui')
+
+    implementation libs.compose.material
+    implementation libs.compose.tooling.preview
+    debugImplementation libs.compose.tooling
+    implementation libs.compose.coil
+    implementation libs.compose.paging
+    implementation libs.compose.hilt.navigation
+    implementation libs.paging.runtime
+    implementation libs.timber
+    implementation libs.lifecycle.viewmodel
+    implementation libs.hilt.android
+    kapt libs.hilt.android.compiler
+
+    testImplementation libs.test.coroutines
+    testImplementation libs.test.junit
+    testImplementation libs.test.coil
+
+    androidTestImplementation libs.test.compose.test.junit4
+    debugImplementation libs.test.compose.test.manifest
+    androidTestImplementation libs.test.runner
+}

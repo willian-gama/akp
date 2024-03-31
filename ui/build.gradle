@@ -1,0 +1,35 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'app.cash.paparazzi'
+}
+
+android {
+    namespace 'com.android.dev.engineer.kotlin.compose.ui'
+
+    defaultConfig {
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion libs.versions.compose.compiler.get()
+    }
+}
+
+dependencies {
+    implementation libs.splashscreen
+    implementation libs.compose.material
+    implementation libs.compose.coil
+    implementation libs.compose.tooling.preview
+    debugImplementation libs.compose.tooling
+
+    testImplementation libs.test.junit
+
+    androidTestImplementation libs.test.compose.test.junit4
+    debugImplementation libs.test.compose.test.manifest
+    androidTestImplementation libs.test.runner
+}

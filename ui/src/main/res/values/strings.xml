@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">KotlinComposeApp</string>
+    <string name="label_try_again">Try again</string>
+</resources>

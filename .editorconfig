@@ -1,0 +1,18 @@
+# Rules: https://pinterest.github.io/ktlint/0.49.1/rules/code-styles
+[*.{kt,kts}]
+# max_line_length: Check detekt.yml file to customise ref.: https://detekt.dev/docs/rules/style/#maxlinelength
+max_line_length = off
+insert_final_newline = false
+# Disable rules: https://pinterest.github.io/ktlint/latest/faq/#why-is-editorconfig-property-disabled_rules-deprecated-and-how-do-i-resolve-this
+ktlint_standard_no-wildcard-imports = disabled
+ktlint_standard_import-ordering = disabled
+ktlint_standard_package-name = disabled
+ktlint_standard_blank-line-before-declaration = disabled
+ktlint_standard_multiline-expression-wrapping = disabled
+ktlint_standard_function-signature = disabled
+ktlint_standard_function-naming = disabled
+ktlint_standard_blank-line-between-when-conditions = disabled
+ktlint_standard_annotation = disabled
+ktlint_standard_parameter-list-wrapping = disabled
+ktlint_standard_trailing-comma-on-call-site = disabled
+ktlint_standard_trailing-comma-on-declaration-site = disabled

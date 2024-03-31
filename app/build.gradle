@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.devtools.ksp'
+    id 'com.google.dagger.hilt.android'
+}
+
+android {
+    namespace 'com.android.dev.engineer.kotlin.compose.app'
+
+    defaultConfig {
+        applicationId application_id
+        versionCode 1
+        versionName version_name
+        testInstrumentationRunner = "com.android.dev.engineer.kotlin.compose.runner.HiltTestRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion libs.versions.compose.compiler.get()
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true // Robolectric config: https://robolectric.org/getting-started
+        }
+    }
+}
+
+kapt {
+    correctErrorTypes = true // Hilt config: https://developer.android.com/training/dependency-injection/hilt-android#setup
+}
+
+dependencies {
+    implementation project(':data')
+    implementation project(':ui')
+    implementation project(':feature:upcoming_movies')
+
+    implementation libs.compose.activity
+    implementation libs.compose.material
+    implementation libs.compose.tooling.preview
+    debugImplementation libs.compose.tooling
+    implementation libs.compose.navigation
+    implementation libs.compose.hilt.navigation
+    implementation libs.compose.coil
+    implementation libs.compose.paging
+    implementation libs.paging.runtime
+    implementation libs.coroutines
+    implementation libs.splashscreen
+    implementation libs.lifecycle.runtime
+    implementation libs.lifecycle.viewmodel
+    implementation libs.lifecycle.viewmodel.savedstate
+    implementation libs.timber
+    implementation libs.hilt.android
+    kapt libs.hilt.android.compiler
+
+    testImplementation libs.test.coroutines
+    testImplementation libs.test.junit
+    testImplementation libs.test.robolectric
+    testImplementation libs.test.core.ktx
+    testImplementation libs.test.mockwebserver
+    testImplementation libs.test.hilt
+
+    androidTestImplementation libs.test.compose.test.junit4
+    debugImplementation libs.test.compose.test.manifest
+    androidTestImplementation libs.test.runner
+    androidTestImplementation libs.test.hilt
+    kaptAndroidTest libs.hilt.android.compiler
+}
