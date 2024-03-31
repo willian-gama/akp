@@ -1,14 +1,12 @@
 plugins {
-//    `java-gradle-plugin`
     `kotlin-dsl`
-    //    alias libs.plugins.android.application apply false
 }
 
 repositories {
     google()
     mavenCentral()
 
-    // KtLint: https://plugins.gradle.org/plugin/org.jlleitschuh.gradle.ktlint
+    // KtLint/Detekt: https://plugins.gradle.org/plugin/org.jlleitschuh.gradle.ktlint
     repositories {
         maven {
             url = uri("https://plugins.gradle.org/m2/")
@@ -24,8 +22,8 @@ dependencies {
 
 gradlePlugin {
     plugins {
-        create("my-convention-plugin") {
-            id = "com.gradle.plugin.my-convention-plugin"
+        create("code_linting_plugin") {
+            id = "com.gradle.plugin.code_linting_plugin"
             implementationClass = "CodeLintingPlugin"
         }
     }

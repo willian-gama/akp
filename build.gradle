@@ -21,7 +21,7 @@ plugins {
     alias libs.plugins.paparazzi apply false
     alias libs.plugins.hilt apply false
     id 'jacoco' // Jacoco plugin: https://docs.gradle.org/current/userguide/jacoco_plugin.html#sec:jacoco_getting_started
-    id 'com.gradle.plugin.my-convention-plugin'
+    id 'com.gradle.plugin.code_linting_plugin'
 }
 
 def localProperties = new Properties()
