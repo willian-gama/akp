@@ -59,7 +59,7 @@ class CodeLintingPlugin : Plugin<Project> {
 
             reporters {
                 reporter(ReporterType.HTML)
-                reporter(ReporterType.JSON)
+                reporter(ReporterType.JSON) // it's required for Sonar
             }
 
             filter {
