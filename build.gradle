@@ -7,7 +7,7 @@ buildscript {
     }
 
     dependencies {
-        classpath "com.willian.gama:plugin:1.0.0"
+        classpath "com.willian.gama.gradle:plugin:1.0.0"
     }
 }
 
@@ -24,7 +24,7 @@ plugins {
 //    id 'jacoco' // Jacoco plugin: https://docs.gradle.org/current/userguide/jacoco_plugin.html#sec:jacoco_getting_started
 }
 
-apply plugin: 'com.willian.gama.plugin.LintingPlugin'
+apply plugin: 'com.willian.gama.plugin.gradle.code-analysis'
 
 def localProperties = new Properties()
 localProperties.load(project.rootProject.file("local.properties").newDataInputStream())

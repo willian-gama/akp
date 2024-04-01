@@ -18,8 +18,8 @@ dependencies {
 gradlePlugin {
     plugins {
         create("linting") {
-            id = "com.willian.gama.plugin.LintingPlugin"
-            implementationClass = "com.willian.gama.plugin.LintingPlugin"
+            id = "com.willian.gama.plugin.gradle.code-analysis"
+            implementationClass = "com.willian.gama.gradle.CodeAnalysisPlugin"
         }
     }
 }
@@ -30,7 +30,7 @@ afterEvaluate {
             // https://docs.gradle.org/current/userguide/publishing_maven.html#sec:identity_values_in_the_generated_pom
             create<MavenPublication>("release") {
                 from(components["java"])
-                groupId = "com.willian.gama"
+                groupId = "com.willian.gama.gradle"
                 artifactId = "plugin"
                 version = "1.0.0"
 //                artifact("/Users/android_dev_engineer/Projects/Mobile/KtComposeApp/plugin/src/main/java/com/willian/gama/gradle/plugin/LintingPlugin.kt")
