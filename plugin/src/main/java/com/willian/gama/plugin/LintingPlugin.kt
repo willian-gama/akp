@@ -1,4 +1,4 @@
-package com.willian.gama.gradle.plugin
+package com.willian.gama.plugin
 
 import io.gitlab.arturbosch.detekt.Detekt
 import org.gradle.api.JavaVersion
