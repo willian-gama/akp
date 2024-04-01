@@ -75,7 +75,7 @@ class CodeAnalysisPlugin : Plugin<Project> {
         pluginManager.apply("org.jlleitschuh.gradle.ktlint")
 
         // https://github.com/JLLeitschuh/ktlint-gradle?tab=readme-ov-file#configuration
-        configure<KtlintExtension> {
+        extensions.configure<KtlintExtension> {
             version.set("1.2.1")
             android.set(true)
             verbose.set(true)
@@ -86,7 +86,7 @@ class CodeAnalysisPlugin : Plugin<Project> {
             }
 
             filter {
-                include("**/*.kt")
+                include("**/*.kt", "**/*.kts")
                 exclude("**/build/**")
             }
         }
@@ -96,7 +96,6 @@ class CodeAnalysisPlugin : Plugin<Project> {
             reportsOutputDirectory.set(project.layout.buildDirectory.dir("reports/ktlint/$name"))
         }
     }
-
 
     private fun Project.setUpCodeCoverage() {
         pluginManager.apply("jacoco")
