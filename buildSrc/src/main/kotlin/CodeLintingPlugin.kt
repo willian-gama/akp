@@ -45,7 +45,9 @@ class CodeLintingPlugin : Plugin<Project> {
                 showStackTraces = false
             }
 
+            // Paparazzi screenshots Java compatibility: https://docs.gradle.org/current/userguide/toolchains.html#sec:plugins_toolchains
             javaLauncher.set(
+                // https://blog.jetbrains.com/kotlin/2021/11/gradle-jvm-toolchain-support-in-the-kotlin-plugin
                 extensions.getByType<JavaToolchainService>().launcherFor {
                     languageVersion.set(JavaLanguageVersion.of(JavaVersion.VERSION_17.toString()))
                 }
