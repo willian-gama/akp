@@ -2,8 +2,14 @@ import io.gitlab.arturbosch.detekt.Detekt
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.tasks.testing.Test
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.gradle.jvm.toolchain.JavaLanguageVersion
+import org.gradle.jvm.toolchain.JavaLauncher
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.withType
+import org.gradle.testing.jacoco.plugins.JacocoPluginExtension
+import org.gradle.testing.jacoco.plugins.JacocoTaskExtension
 import org.jlleitschuh.gradle.ktlint.KtlintExtension
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 import org.jlleitschuh.gradle.ktlint.tasks.GenerateReportsTask
@@ -13,13 +19,35 @@ class CodeLintingPlugin : Plugin<Project> {
         project.subprojects {
             setUpKtLint()
             setUpDetekt()
+            setUpUnitTest()
+        }
+    }
+
+    private fun Project.setUpUnitTest() {
+        pluginManager.apply("jacoco")
+
+        configure<JacocoPluginExtension> {
+            toolVersion = "0.8.10"
+        }
+
+        tasks.withType<Test>().configureEach {
+            configure<JacocoTaskExtension> {
+                isIncludeNoLocationClasses = true // Robolectric support
+                excludes = listOf(
+                    "jdk.internal.*",
+                    "coil.compose.*"
+                )
+            }
+
+            testLogging {
+                exceptionFormat = TestExceptionFormat.FULL // Display the full log to identify Paparazzi test failures
+                showStackTraces = false
+            }
         }
     }
 
     private fun Project.setUpDetekt() {
-        pluginManager.apply {
-            apply("io.gitlab.arturbosch.detekt")
-        }
+        pluginManager.apply("io.gitlab.arturbosch.detekt")
 
         tasks.withType<Detekt>().configureEach {
             include("**/*.kt")
@@ -47,9 +75,7 @@ class CodeLintingPlugin : Plugin<Project> {
 
     private fun Project.setUpKtLint() {
         // https://github.com/JLLeitschuh/ktlint-gradle?tab=readme-ov-file#applying-to-subprojects
-        pluginManager.apply {
-            apply("org.jlleitschuh.gradle.ktlint")
-        }
+        pluginManager.apply("org.jlleitschuh.gradle.ktlint")
 
         // https://github.com/JLLeitschuh/ktlint-gradle?tab=readme-ov-file#configuration
         configure<KtlintExtension> {
