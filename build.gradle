@@ -1,7 +1,4 @@
 import app.cash.paparazzi.gradle.PaparazziPlugin
-import io.gitlab.arturbosch.detekt.Detekt
-import org.gradle.api.tasks.testing.logging.TestExceptionFormat
-import org.jlleitschuh.gradle.ktlint.tasks.GenerateReportsTask
 
 buildscript {
     ext {
@@ -11,8 +8,8 @@ buildscript {
 }
 
 plugins {
-//    alias libs.plugins.android.application apply false
-//    alias libs.plugins.android.library apply false
+    alias libs.plugins.android.application apply false
+    alias libs.plugins.android.library apply false
     alias libs.plugins.kotlin apply false
 //    alias libs.plugins.ktlint apply true
 //    alias libs.plugins.detekt apply false
@@ -20,7 +17,7 @@ plugins {
     alias libs.plugins.sonarqube apply true
     alias libs.plugins.paparazzi apply false
     alias libs.plugins.hilt apply false
-    id 'jacoco' // Jacoco plugin: https://docs.gradle.org/current/userguide/jacoco_plugin.html#sec:jacoco_getting_started
+//    id 'jacoco' // Jacoco plugin: https://docs.gradle.org/current/userguide/jacoco_plugin.html#sec:jacoco_getting_started
     id 'com.gradle.plugin.code_linting_plugin'
 }
 
@@ -51,50 +48,50 @@ subprojects {
                     jvmTarget = JavaVersion.VERSION_17
                 }
 
-                testOptions {
-                    reportDir "${project.layout.buildDirectory.get()}/reports/coverage/androidTest/debug/connected" // It's required for Sonar
+//                testOptions {
+//                    reportDir "${project.layout.buildDirectory.get()}/reports/coverage/androidTest/debug/connected" // It's required for Sonar
+//
+//                    buildTypes {
+//                        // Jacoco config: It configures/enables createDebugCoverageReport task to be used in generateCodeCoverage task below
+//                        debug.testCoverageEnabled = true
+//                    }
+//                }
 
-                    buildTypes {
-                        // Jacoco config: It configures/enables createDebugCoverageReport task to be used in generateCodeCoverage task below
-                        debug.testCoverageEnabled = true
-                    }
-                }
-
-                // Jacoco - Generate reports: https://docs.gradle.org/current/userguide/jacoco_plugin.html#default_values_of_the_jacoco_task_extension
-                tasks.register('generateCodeCoverage', JacocoReport) {
-                    sourceDirectories.from = file("${project.projectDir}/src/main/java") // main source set
-                    classDirectories.from = files(JacocoUtil.getKotlinFileTree(project)) // build directory
-                    executionData.from = fileTree(dir: project.layout.buildDirectory.get(), includes: [
-                            '**/*.exec', // unit tests
-                            '**/*.ec' // ui tests
-                    ])
-
-                    // run unit tests and ui tests to generate code coverage report
-                    reports {
-                        html.required.set(true)
-                        html.outputLocation.set(project.layout.buildDirectory.dir('reports/jacoco').get())
-                        xml.required.set(true) // It's required for Sonar
-                        xml.outputLocation.set(file("${project.layout.buildDirectory.get()}/reports/jacoco/jacoco.xml"))
-                    }
-                }
-
-                // Jacoco - Verify violations: https://docs.gradle.org/current/userguide/jacoco_plugin.html#sec:jacoco_report_violation_rules
-                tasks.register('verifyCodeCoverage', JacocoCoverageVerification) {
-                    sourceDirectories.from = file("${project.projectDir}/src/main/java") // main source set
-                    classDirectories.from = files(JacocoUtil.getKotlinFileTree(project))
-                    executionData.from = fileTree(dir: project.layout.buildDirectory.get(), includes: [
-                            '**/*.exec', // unit tests
-                            '**/*.ec' // ui tests
-                    ])
-
-                    violationRules {
-                        rule {
-                            limit {
-                                minimum = 0.3 // 30%
-                            }
-                        }
-                    }
-                }
+//                // Jacoco - Generate reports: https://docs.gradle.org/current/userguide/jacoco_plugin.html#default_values_of_the_jacoco_task_extension
+//                tasks.register('generateCodeCoverage', JacocoReport) {
+//                    sourceDirectories.from = file("${project.projectDir}/src/main/java") // main source set
+//                    classDirectories.from = files(JacocoUtil.getKotlinFileTree(project)) // build directory
+//                    executionData.from = fileTree(dir: project.layout.buildDirectory.get(), includes: [
+//                            '**/*.exec', // unit tests
+//                            '**/*.ec' // ui tests
+//                    ])
+//
+//                    // run unit tests and ui tests to generate code coverage report
+//                    reports {
+//                        html.required.set(true)
+//                        html.outputLocation.set(project.layout.buildDirectory.dir('reports/jacoco').get())
+//                        xml.required.set(true) // It's required for Sonar
+//                        xml.outputLocation.set(file("${project.layout.buildDirectory.get()}/reports/jacoco/jacoco.xml"))
+//                    }
+//                }
+//
+//                // Jacoco - Verify violations: https://docs.gradle.org/current/userguide/jacoco_plugin.html#sec:jacoco_report_violation_rules
+//                tasks.register('verifyCodeCoverage', JacocoCoverageVerification) {
+//                    sourceDirectories.from = file("${project.projectDir}/src/main/java") // main source set
+//                    classDirectories.from = files(JacocoUtil.getKotlinFileTree(project))
+//                    executionData.from = fileTree(dir: project.layout.buildDirectory.get(), includes: [
+//                            '**/*.exec', // unit tests
+//                            '**/*.ec' // ui tests
+//                    ])
+//
+//                    violationRules {
+//                        rule {
+//                            limit {
+//                                minimum = 0.3 // 30%
+//                            }
+//                        }
+//                    }
+//                }
             }
         }
     }
@@ -147,28 +144,28 @@ subprojects {
 //    }
 
     // Jacoco version: https://docs.gradle.org/current/userguide/jacoco_plugin.html#sec:configuring_the_jacoco_plugin
-    jacoco {
-        toolVersion = libs.versions.jacoco.get()
-    }
+//    jacoco {
+//        toolVersion = libs.versions.jacoco.get()
+//    }
 
     // Jacoco test options: https://docs.gradle.org/current/userguide/jacoco_plugin.html#default_values_of_the_jacoco_task_extension
-    tasks.withType(Test).configureEach {
-        jacoco {
-            includeNoLocationClasses = true // Robolectric support
-            excludes = [
-                    'jdk.internal.*', // Java compatibility
-                    'coil.compose.*'
-            ]
-        }
-        testLogging {
-            exceptionFormat = TestExceptionFormat.FULL // Display the full log to identify Paparazzi test failures
-            showStackTraces = false
-        }
-        // Paparazzi screenshots Java compatibility: https://docs.gradle.org/current/userguide/toolchains.html#toolchains_for_tasks
-        javaLauncher = javaToolchains.launcherFor {
-            languageVersion = JavaLanguageVersion.of(JavaVersion.VERSION_17.toString())
-        }
-    }
+//    tasks.withType(Test).configureEach {
+//        jacoco {
+//            includeNoLocationClasses = true // Robolectric support
+//            excludes = [
+//                    'jdk.internal.*', // Java compatibility
+//                    'coil.compose.*'
+//            ]
+//        }
+//        testLogging {
+//            exceptionFormat = TestExceptionFormat.FULL // Display the full log to identify Paparazzi test failures
+//            showStackTraces = false
+//        }
+//        // Paparazzi screenshots Java compatibility: https://docs.gradle.org/current/userguide/toolchains.html#toolchains_for_tasks
+//        javaLauncher = javaToolchains.launcherFor {
+//            languageVersion = JavaLanguageVersion.of(JavaVersion.VERSION_17.toString())
+//        }
+//    }
 
     // Paparazzi Google Guava compatibility
     plugins.withType(PaparazziPlugin).configureEach {

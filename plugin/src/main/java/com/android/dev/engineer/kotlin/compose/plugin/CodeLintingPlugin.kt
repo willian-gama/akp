@@ -1,3 +1,5 @@
+package com.android.dev.engineer.kotlin.compose.plugin
+
 import io.gitlab.arturbosch.detekt.Detekt
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin

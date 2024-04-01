@@ -3,18 +3,6 @@ plugins {
     id("jacoco") // Jacoco plugin: https://docs.gradle.org/current/userguide/jacoco_plugin.html#sec:jacoco_getting_started
 }
 
-repositories {
-    google()
-    mavenCentral()
-
-    // KtLint/Detekt: https://plugins.gradle.org/plugin/org.jlleitschuh.gradle.ktlint
-    repositories {
-        maven {
-            url = uri("https://plugins.gradle.org/m2/")
-        }
-    }
-}
-
 dependencies {
     implementation("com.android.tools.build:gradle:8.3.1")
     implementation("org.jlleitschuh.gradle:ktlint-gradle:12.1.0")
@@ -26,7 +14,7 @@ gradlePlugin {
     plugins {
         create("code_linting_plugin") {
             id = "com.gradle.plugin.code_linting_plugin"
-            implementationClass = "CodeLintingPlugin"
+            implementationClass = "com.android.dev.engineer.kotlin.compose.plugin.CodeLintingPlugin"
         }
     }
 }

@@ -19,6 +19,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven {
+            url = uri("https://plugins.gradle.org/m2/")
+        }
     }
 }
 rootProject.name = "KotlinComposeApp"
@@ -26,3 +29,4 @@ include ':app'
 include ':data'
 include ':ui'
 include ':feature:upcoming_movies'
+include ':plugin' // TODO remove it once migrated to another repository
