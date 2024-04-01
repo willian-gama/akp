@@ -6,13 +6,12 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.tasks.testing.Test
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
-import org.gradle.jvm.toolchain.JavaLanguageVersion
-import org.gradle.jvm.toolchain.JavaToolchainService
 import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.getByType
+import org.gradle.kotlin.dsl.register
 import org.gradle.kotlin.dsl.withType
 import org.gradle.testing.jacoco.plugins.JacocoPluginExtension
 import org.gradle.testing.jacoco.plugins.JacocoTaskExtension
+import org.gradle.testing.jacoco.tasks.JacocoReport
 import org.jlleitschuh.gradle.ktlint.KtlintExtension
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 import org.jlleitschuh.gradle.ktlint.tasks.GenerateReportsTask
@@ -23,37 +22,24 @@ class CodeAnalysisPlugin : Plugin<Project> {
             setUpKtLint()
             setUpDetekt()
             setUpUnitTest()
+            setUpCodeCoverage()
         }
     }
 
     private fun Project.setUpUnitTest() {
-        pluginManager.apply("jacoco")
-
-        configure<JacocoPluginExtension> {
-            toolVersion = "0.8.10"
-        }
-
         tasks.withType<Test>().configureEach {
-            configure<JacocoTaskExtension> {
-                isIncludeNoLocationClasses = true // Robolectric support
-                excludes = listOf(
-                    "jdk.internal.*",
-                    "coil.compose.*"
-                )
-            }
-
             testLogging {
                 exceptionFormat = TestExceptionFormat.FULL // Display the full log to identify Paparazzi test failures
                 showStackTraces = false
             }
 
             // Paparazzi screenshots Java compatibility: https://docs.gradle.org/current/userguide/toolchains.html#sec:plugins_toolchains
-            javaLauncher.set(
-                // https://blog.jetbrains.com/kotlin/2021/11/gradle-jvm-toolchain-support-in-the-kotlin-plugin
-                extensions.getByType<JavaToolchainService>().launcherFor {
-                    languageVersion.set(JavaLanguageVersion.of(JavaVersion.VERSION_17.toString()))
-                }
-            )
+//            javaLauncher.set(
+//                // https://blog.jetbrains.com/kotlin/2021/11/gradle-jvm-toolchain-support-in-the-kotlin-plugin
+//                extensions.getByType<JavaToolchainService>().launcherFor {
+//                    languageVersion.set(JavaLanguageVersion.of(JavaVersion.VERSION_17.toString()))
+//                }
+//            )
         }
     }
 
@@ -108,6 +94,52 @@ class CodeAnalysisPlugin : Plugin<Project> {
         // https://github.com/JLLeitschuh/ktlint-gradle#setting-reports-output-directory
         tasks.withType<GenerateReportsTask> {
             reportsOutputDirectory.set(project.layout.buildDirectory.dir("reports/ktlint/$name"))
+        }
+    }
+
+
+    private fun Project.setUpCodeCoverage() {
+        pluginManager.apply("jacoco")
+
+        extensions.configure<JacocoPluginExtension> {
+            toolVersion = "0.8.10"
+        }
+
+        tasks.withType<Test>().configureEach {
+            extensions.configure(JacocoTaskExtension::class) {
+                isIncludeNoLocationClasses = true // Robolectric support
+                excludes = listOf(
+                    "jdk.internal.*",
+                    "coil.compose.*"
+                )
+            }
+        }
+
+        afterEvaluate {
+            tasks.register<JacocoReport>("generateCodeCoverage") {
+                group = "Jacoco code coverage report"
+                sourceDirectories.from(file("${project.projectDir}/src/main/java")) // main source set)
+                classDirectories.from(
+                    fileTree(layout.buildDirectory.get()) { // build directory
+                        exclude(
+                            "**/BuildConfig.*",
+                            "**/*\$*",
+                            "**/Hilt_*.class",
+                            "hilt_**",
+                            "dagger/hilt/**",
+                            "**/*JsonAdapter.*"
+                        )
+                    }
+                )
+                executionData.from(
+                    fileTree(layout.buildDirectory.get()) {
+                        include(
+                            "**/*.exec", // unit tests
+                            "**/*.ec" // ui tests
+                        )
+                    }
+                )
+            }
         }
     }
 }
