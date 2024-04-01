@@ -2,6 +2,7 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         google()
+        mavenLocal() // https://docs.gradle.org/current/userguide/plugins.html#sec:custom_plugin_repositories
         mavenCentral()
     }
 }

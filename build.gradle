@@ -5,6 +5,10 @@ buildscript {
         application_id = 'com.android.dev.engineer.kotlin.compose'
         version_name = "1.0"
     }
+
+    dependencies {
+        classpath "com.willian.gama.gradle:plugin:1.0.0"
+    }
 }
 
 plugins {
@@ -18,7 +22,7 @@ plugins {
     alias libs.plugins.paparazzi apply false
     alias libs.plugins.hilt apply false
 //    id 'jacoco' // Jacoco plugin: https://docs.gradle.org/current/userguide/jacoco_plugin.html#sec:jacoco_getting_started
-    id 'com.gradle.plugin.code_linting_plugin'
+//    id 'com.willian.gama.gradle.plugin.LintingPlugin'
 }
 
 def localProperties = new Properties()

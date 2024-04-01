@@ -1,4 +1,4 @@
-package com.android.dev.engineer.kotlin.compose.plugin
+package com.willian.gama.gradle.plugin
 
 import io.gitlab.arturbosch.detekt.Detekt
 import org.gradle.api.JavaVersion
@@ -17,7 +17,7 @@ import org.jlleitschuh.gradle.ktlint.KtlintExtension
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 import org.jlleitschuh.gradle.ktlint.tasks.GenerateReportsTask
 
-class CodeLintingPlugin : Plugin<Project> {
+class LintingPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         project.subprojects {
             setUpKtLint()

@@ -1,20 +1,40 @@
 plugins {
     `kotlin-dsl`
-    id("jacoco") // Jacoco plugin: https://docs.gradle.org/current/userguide/jacoco_plugin.html#sec:jacoco_getting_started
+    `java-gradle-plugin`
+    `maven-publish`
+    jacoco // Jacoco plugin: https://docs.gradle.org/current/userguide/jacoco_plugin.html#sec:jacoco_getting_started
+}
+
+kotlin {
+    jvmToolchain(JavaVersion.VERSION_17.toString().toInt())
 }
 
 dependencies {
     implementation("com.android.tools.build:gradle:8.3.1")
     implementation("org.jlleitschuh.gradle:ktlint-gradle:12.1.0")
     implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.23.6")
-    //implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:4.4.1.3373")
 }
 
 gradlePlugin {
     plugins {
-        create("code_linting_plugin") {
-            id = "com.gradle.plugin.code_linting_plugin"
-            implementationClass = "com.android.dev.engineer.kotlin.compose.plugin.CodeLintingPlugin"
+        create("linting") {
+            id = "com.willian.gama.gradle.plugin.LintingPlugin"
+            implementationClass = "com.willian.gama.gradle.plugin.LintingPlugin"
+        }
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // https://docs.gradle.org/current/userguide/publishing_maven.html#sec:identity_values_in_the_generated_pom
+            create<MavenPublication>("release") {
+                from(components["java"])
+                groupId = "com.willian.gama.gradle"
+                artifactId = "plugin"
+                version = "1.0.0"
+//                artifact("/Users/android_dev_engineer/Projects/Mobile/KtComposeApp/plugin/src/main/java/com/android/dev/engineer/kotlin/compose/plugin/LintingPlugin.kt")
+            }
         }
     }
 }
