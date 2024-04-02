@@ -55,15 +55,17 @@ subprojects {
 
                     buildTypes {
                         // Jacoco config: It configures/enables createDebugCoverageReport task to be used in generateCodeCoverage task below
-                        debug.testCoverageEnabled = true
+                        debug {
+                            testCoverageEnabled = true
+                        }
                     }
                 }
 
                 // Jacoco - Generate reports: https://docs.gradle.org/current/userguide/jacoco_plugin.html#default_values_of_the_jacoco_task_extension
                 tasks.register('generateCodeCoverage', JacocoReport) {
-                    sourceDirectories.from = file("${project.projectDir}/src/main/java") // main source set
+                    sourceDirectories.from = file(layout.projectDirectory.dir("src/main/java")) // main source set
                     classDirectories.from = files(JacocoUtil.getKotlinFileTree(project)) // build directory
-                    executionData.from = fileTree(dir: project.layout.buildDirectory.get(), includes: [
+                    executionData.from = fileTree(dir: layout.buildDirectory.get(), includes: [
                             '**/*.exec', // unit tests
                             '**/*.ec' // ui tests
                     ])
@@ -222,7 +224,7 @@ class JacocoUtil {
     static ConfigurableFileTree getKotlinFileTree(Project project) {
         return project.fileTree(
                 // Where generated Kotlin classes are located
-                dir: "${project.layout.buildDirectory.get()}/tmp/kotlin-classes/debug",
+                dir: project.layout.buildDirectory.dir("tmp/kotlin-classes/debug"),
                 // Exclude everything that is not created by you, e.g. created by HILT
                 excludes: [
                         '**/BuildConfig.*',
