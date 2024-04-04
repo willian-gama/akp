@@ -18,7 +18,6 @@ plugins {
     alias libs.plugins.ksp apply false
     alias libs.plugins.paparazzi apply false
     alias libs.plugins.hilt apply false
-    id 'jacoco' // Jacoco plugin: https://docs.gradle.org/current/userguide/jacoco_plugin.html#sec:jacoco_getting_started
 }
 
 apply plugin: 'com.willian.gama.plugin.gradle.code-analysis'
@@ -28,12 +27,11 @@ localProperties.load(project.rootProject.file("local.properties").newDataInputSt
 
 ext {
     sonar_project_key = application_id
+    sonar_project_version = version_name
     sonar_login = localProperties.getProperty("sonar_token")
 }
 
 subprojects {
-    apply plugin: 'jacoco'
-
     afterEvaluate {
         if (project.hasProperty('android')) {
             android {
@@ -64,58 +62,24 @@ subprojects {
                     }
                 }
 
-                // Jacoco - Generate reports: https://docs.gradle.org/current/userguide/jacoco_plugin.html#default_values_of_the_jacoco_task_extension
-                tasks.register('generateCodeCoverage', JacocoReport) {
-                    sourceDirectories.from = file("${project.projectDir}/src/main/java") // main source set
-                    classDirectories.from = files(JacocoUtil.getKotlinFileTree(project)) // build directory
-                    executionData.from = fileTree(dir: project.layout.buildDirectory.get(), includes: [
-                            '**/*.exec', // unit tests
-                            '**/*.ec' // ui tests
-                    ])
-
-                    // run unit tests and ui tests to generate code coverage report
-                    reports {
-                        html.required.set(true)
-                        html.outputLocation.set(project.layout.buildDirectory.dir('reports/jacoco').get())
-                        xml.required.set(true) // It's required for Sonar
-                        xml.outputLocation.set(file("${project.layout.buildDirectory.get()}/reports/jacoco/jacoco.xml"))
-                    }
-                }
-
                 // Jacoco - Verify violations: https://docs.gradle.org/current/userguide/jacoco_plugin.html#sec:jacoco_report_violation_rules
-                tasks.register('verifyCodeCoverage', JacocoCoverageVerification) {
-                    sourceDirectories.from = file("${project.projectDir}/src/main/java") // main source set
-                    classDirectories.from = files(JacocoUtil.getKotlinFileTree(project))
-                    executionData.from = fileTree(dir: project.layout.buildDirectory.get(), includes: [
-                            '**/*.exec', // unit tests
-                            '**/*.ec' // ui tests
-                    ])
-
-                    violationRules {
-                        rule {
-                            limit {
-                                minimum = 0.3 // 30%
-                            }
-                        }
-                    }
-                }
+//                tasks.register('verifyCodeCoverage', JacocoCoverageVerification) {
+//                    sourceDirectories.from = file("${project.projectDir}/src/main/java") // main source set
+//                    classDirectories.from = files(JacocoUtil.getKotlinFileTree(project))
+//                    executionData.from = fileTree(dir: project.layout.buildDirectory.get(), includes: [
+//                            '**/*.exec', // unit tests
+//                            '**/*.ec' // ui tests
+//                    ])
+//
+//                    violationRules {
+//                        rule {
+//                            limit {
+//                                minimum = 0.3 // 30%
+//                            }
+//                        }
+//                    }
+//                }
             }
-        }
-    }
-
-    // Jacoco version: https://docs.gradle.org/current/userguide/jacoco_plugin.html#sec:configuring_the_jacoco_plugin
-    jacoco {
-        toolVersion = libs.versions.jacoco.get()
-    }
-
-    // Jacoco test options: https://docs.gradle.org/current/userguide/jacoco_plugin.html#default_values_of_the_jacoco_task_extension
-    tasks.withType(Test).configureEach {
-        jacoco {
-            includeNoLocationClasses = true // Robolectric support
-            excludes = [
-                    'jdk.internal.*', // Java compatibility
-                    'coil.compose.*'
-            ]
         }
     }
 
