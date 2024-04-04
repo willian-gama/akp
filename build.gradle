@@ -28,6 +28,7 @@ localProperties.load(project.rootProject.file("local.properties").newDataInputSt
 
 ext {
     sonar_project_key = application_id
+    sonar_project_version = version_name
     sonar_login = localProperties.getProperty("sonar_token")
 }
 
