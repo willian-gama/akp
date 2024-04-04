@@ -20,15 +20,15 @@ plugins {
     alias libs.plugins.hilt apply false
 }
 
-apply plugin: 'com.willian.gama.plugin.gradle.code-analysis'
-
 def localProperties = new Properties()
 localProperties.load(project.rootProject.file("local.properties").newDataInputStream())
 
-ext {
-    sonar_project_key = application_id
-    sonar_project_version = version_name
-    sonar_login = localProperties.getProperty("sonar_token")
+
+apply plugin: 'com.willian.gama.plugin.gradle.code-analysis'
+code_analysis_tool {
+    sonarProjectKey = application_id
+    sonarProjectVersion = version_name
+    sonarToken = localProperties.getProperty("sonar_token")
 }
 
 subprojects {
