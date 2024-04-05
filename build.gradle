@@ -1,5 +1,3 @@
-import app.cash.paparazzi.gradle.PaparazziPlugin
-
 buildscript {
     ext {
         application_id = 'com.android.dev.engineer.kotlin.compose'
@@ -26,6 +24,7 @@ localProperties.load(project.rootProject.file("local.properties").newDataInputSt
 apply plugin: "com.willian.gama.gradle.plugin.gradle.code-analysis"
 
 code_analysis_tool {
+    sonarProjectName = rootProject.name
     sonarProjectKey = application_id
     sonarProjectVersion = version_name
     sonarToken = localProperties.getProperty("sonar_token")
@@ -61,39 +60,6 @@ subprojects {
                         }
                     }
                 }
-
-                // Jacoco - Verify violations: https://docs.gradle.org/current/userguide/jacoco_plugin.html#sec:jacoco_report_violation_rules
-//                tasks.register('verifyCodeCoverage', JacocoCoverageVerification) {
-//                    sourceDirectories.from = file("${project.projectDir}/src/main/java") // main source set
-//                    classDirectories.from = files(JacocoUtil.getKotlinFileTree(project))
-//                    executionData.from = fileTree(dir: project.layout.buildDirectory.get(), includes: [
-//                            '**/*.exec', // unit tests
-//                            '**/*.ec' // ui tests
-//                    ])
-//
-//                    violationRules {
-//                        rule {
-//                            limit {
-//                                minimum = 0.3 // 30%
-//                            }
-//                        }
-//                    }
-//                }
-            }
-        }
-    }
-
-    // Paparazzi Google Guava compatibility
-    plugins.withType(PaparazziPlugin).configureEach {
-        dependencies.constraints {
-            testImplementation("com.google.guava:guava") {
-                attributes {
-                    attribute(
-                            TargetJvmEnvironment.TARGET_JVM_ENVIRONMENT_ATTRIBUTE,
-                            objects.named(TargetJvmEnvironment, TargetJvmEnvironment.STANDARD_JVM)
-                    )
-                }
-                because("LayoutLib and sdk-common depend on Guava's -jre published variant. See https://github.com/cashapp/paparazzi/issues/1231#issuecomment-1893104358.")
             }
         }
     }
@@ -104,22 +70,4 @@ tasks.named('wrapper') {
     description = "Gradle wrapper task to update binary"
     gradleVersion = libs.versions.gradle.get()
     distributionType = Wrapper.DistributionType.BIN
-}
-
-class JacocoUtil {
-    static ConfigurableFileTree getKotlinFileTree(Project project) {
-        return project.fileTree(
-                // Where generated Kotlin classes are located
-                dir: "${project.layout.buildDirectory.get()}/tmp/kotlin-classes/debug",
-                // Exclude everything that is not created by you, e.g. created by HILT
-                excludes: [
-                        '**/BuildConfig.*',
-                        '**/*$*',
-                        '**/Hilt_*.class',
-                        'hilt_**',
-                        'dagger/hilt/**',
-                        '**/*JsonAdapter.*'
-                ]
-        )
-    }
 }
