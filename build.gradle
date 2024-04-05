@@ -23,8 +23,8 @@ plugins {
 def localProperties = new Properties()
 localProperties.load(project.rootProject.file("local.properties").newDataInputStream())
 
+apply plugin: "com.willian.gama.gradle.plugin.gradle.code-analysis"
 
-apply plugin: 'com.willian.gama.plugin.gradle.code-analysis'
 code_analysis_tool {
     sonarProjectKey = application_id
     sonarProjectVersion = version_name
