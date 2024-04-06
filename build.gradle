@@ -5,7 +5,7 @@ buildscript {
     }
 
     dependencies {
-        classpath "com.willian.gama.gradle:plugin:1.0.0"
+        classpath libs.code.analysis
     }
 }
 
