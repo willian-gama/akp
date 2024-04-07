@@ -5,10 +5,12 @@ export LOCAL_PROPERTIES
 
 if [ ! -f "$LOCAL_PROPERTIES" ]; then
     touch $LOCAL_PROPERTIES
+    echo "${{ secrets.API_KEY }}"
+
     {
-      echo "api_key=${{ secrets.API_KEY }}"
-      echo "github_user_id=${{ secrets.GITHUB_USER_ID }}"
-      echo "github_key=${{ secrets.GITHUB_KEY }}"
+      echo "api_key=$API_KEY"
+      echo "gpr_username=$GPR_USER"
+      echo "gpr_key=$GPR_KEY"
     } >> $LOCAL_PROPERTIES
 
     cat $LOCAL_PROPERTIES

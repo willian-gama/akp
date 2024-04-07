@@ -11,8 +11,8 @@ pluginManagement {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/willian-gama/WillianGamaGradle")
             credentials {
-                username = localProperties.getProperty("github_user_id")
-                password = localProperties.getProperty("github_key")
+                username = localProperties.getProperty("gpr_username")
+                password = localProperties.getProperty("gpr_key")
             }
         }
     }
