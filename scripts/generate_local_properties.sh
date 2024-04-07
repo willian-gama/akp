@@ -9,7 +9,7 @@ if [ ! -f "$LOCAL_PROPERTIES" ]; then
 
     {
       echo "api_key=$API_KEY"
-      echo "gpr_username=$GPR_USER"
+      echo "gpr_username=$GPR_USERNAME"
       echo "gpr_key=$GPR_KEY"
     } >> $LOCAL_PROPERTIES
 
