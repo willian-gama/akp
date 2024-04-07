@@ -3,19 +3,12 @@
 LOCAL_PROPERTIES="local.properties"
 export LOCAL_PROPERTIES
 
-echo "$API_KEY"
-echo "$GPR_USERNAME"
-echo "$GPR_KEY"
-
 if [ ! -f "$LOCAL_PROPERTIES" ]; then
     touch $LOCAL_PROPERTIES
-    echo "${{ secrets.API_KEY }}"
 
-    {
-      echo "api_key=$API_KEY"
-      echo "gpr_username=$GPR_USERNAME"
-      echo "gpr_key=$GPR_KEY"
-    } >> $LOCAL_PROPERTIES
+    echo "api_key=$API_KEY" >> $LOCAL_PROPERTIES
+    echo "gpr_username=$GPR_USERNAME" >> $LOCAL_PROPERTIES
+    echo "gpr_key=$GPR_KEY" >> $LOCAL_PROPERTIES
 
     cat $LOCAL_PROPERTIES
 fi
