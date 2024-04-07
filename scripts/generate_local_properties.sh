@@ -3,6 +3,10 @@
 LOCAL_PROPERTIES="local.properties"
 export LOCAL_PROPERTIES
 
+echo "$API_KEY"
+echo "$GPR_USERNAME"
+echo "$GPR_KEY"
+
 if [ ! -f "$LOCAL_PROPERTIES" ]; then
     touch $LOCAL_PROPERTIES
     echo "${{ secrets.API_KEY }}"
