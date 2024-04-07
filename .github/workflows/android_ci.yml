@@ -6,15 +6,15 @@ on:
   pull_request:
     branches: [ "develop" , "main" ]
 
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   API_KEY: ${{ secrets.API_KEY }}
   GPR_USERNAME: ${{ secrets.GPR_USERNAME }}
   GPR_KEY: ${{ secrets.GPR_KEY }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-concurrency:
-  group: ${{ github.ref }}
-  cancel-in-progress: true
 
 jobs:
   code_linting:
