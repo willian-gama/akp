@@ -6,7 +6,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -155,7 +155,7 @@ class PagerIndicatorComposableTest {
     @Test
     fun testOnClick() {
         with(composeTestRule) {
-            var selectedIndex by mutableStateOf(0)
+            var selectedIndex by mutableIntStateOf(0)
             setContent {
                 KotlinComposeAppTheme {
                     PagerIndicatorComposable(

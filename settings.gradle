@@ -1,8 +1,20 @@
 pluginManagement {
+    def localProperties = new Properties()
+    localProperties.load(file("local.properties").newDataInputStream())
+
     repositories {
         gradlePluginPortal()
         google()
+        mavenLocal() // https://docs.gradle.org/current/userguide/plugins.html#sec:custom_plugin_repositories
         mavenCentral()
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/willian-gama/WillianGamaGradle")
+            credentials {
+                username = localProperties.getProperty("gpr_username")
+                password = localProperties.getProperty("gpr_key")
+            }
+        }
     }
 }
 

@@ -2,7 +2,11 @@ package com.android.dev.engineer.kotlin.compose.feature.intro
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
@@ -11,8 +15,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Call
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -49,7 +53,7 @@ fun IntroScreen(
         IntroItem(title = "Page 1", imageVector = Icons.Filled.Call),
         IntroItem(title = "Page 2", imageVector = Icons.Filled.Search),
         IntroItem(title = "Page 3", imageVector = Icons.Filled.Info),
-        IntroItem(title = "Page 4", imageVector = Icons.Filled.List)
+        IntroItem(title = "Page 4", imageVector = Icons.Filled.Check)
     )
 
     LaunchedEffect(Unit) {
@@ -152,7 +156,7 @@ private fun PreviewIntroScreen() {
             IntroItem(title = "Page 1", imageVector = Icons.Filled.Call),
             IntroItem(title = "Page 2", imageVector = Icons.Filled.Search),
             IntroItem(title = "Page 3", imageVector = Icons.Filled.Info),
-            IntroItem(title = "Page 4", imageVector = Icons.Filled.List)
+            IntroItem(title = "Page 4", imageVector = Icons.Filled.Check)
         ),
         onGetStartedAction = {}
     )

@@ -67,7 +67,7 @@ fun PagerIndicatorComposable(
 @Composable
 @ExcludeFromJacocoGeneratedReport
 private fun PreviewPagerIndicator() {
-    var selectedIndex by remember { mutableStateOf(0) }
+    var selectedIndex by remember { mutableIntStateOf(0) }
     PagerIndicatorComposable(
         selectedIndex = selectedIndex,
         total = 4,
