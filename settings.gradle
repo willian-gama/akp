@@ -9,7 +9,7 @@ pluginManagement {
         mavenCentral()
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/willian-gama/WillianGamaGradle")
+            url = uri("https://maven.pkg.github.com/${localProperties.getProperty("gpr_username")}/kgp")
             credentials {
                 username = localProperties.getProperty("gpr_username")
                 password = localProperties.getProperty("gpr_key")
