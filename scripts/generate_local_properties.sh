@@ -18,4 +18,3 @@ if [ ! -f "$LOCAL_PROPERTIES" ]; then
 
     cat $LOCAL_PROPERTIES
 fi
-}
