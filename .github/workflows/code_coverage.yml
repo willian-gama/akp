@@ -9,6 +9,12 @@ concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  API_KEY: ${{ secrets.API_KEY }}
+  GPR_USERNAME: ${{ secrets.GPR_USERNAME }}
+  GPR_KEY: ${{ secrets.GPR_KEY }}
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
 jobs:
   code_coverage:
     runs-on: macos-latest
