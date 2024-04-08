@@ -32,6 +32,12 @@
   ],
   "packageRules": [
     {
+      "matchDatasources": ["maven"],
+      "registryUrls": [
+        "https://maven.pkg.github.com/willian-gama/kgp"
+      ]
+    },
+    {
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch",
       "matchPackagePatterns": [
