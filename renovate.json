@@ -21,6 +21,15 @@
   "additionalBranchPrefix": "update-libs/",
   "commitMessageAction": "update",
   "commitMessageExtra": "from {{{currentValue}}} to {{#if isPinDigest}}{{{newDigestShort}}}{{else}}{{#if isMajor}}{{prettyNewMajor}}{{else}}{{#if isSingleVersion}}{{prettyNewVersion}}{{else}}{{#if newValue}}{{{newValue}}}{{else}}{{{newDigestShort}}}{{/if}}{{/if}}{{/if}}{{/if}}",
+  "hostRules": [
+    {
+      "matchHost": "maven.pkg.github.com",
+      "hostType": "maven",
+      "encrypted": {
+        "token": "wcFMA/xDdHCJBTolAQ/5AZ1DUwmlyPi71SDrpMYYF4LrSJdBhcdXfT4X73Q0PoSevvlRwWZ5Cv4VeJ4Fa1P+01H8uxXBTaT7PH6LQ2zcnaJuy521v8rHCM0nPM+EZoRG4dbVclOtoBqPA5RQXdweXcbv7bx5BiO2vPdVdM7OPYhA62Ld7N3LV/3mTxzCY4LyIE52cfS9NfXlmVLzCjiTu7O/YwZw1ASvatZrCFyuNckx4IZPNyudXay4ym9jMzfUSHcQWLO/5+1T9G2zjnjrE74WhRLaCDW2O8MDTY2i8qU9y0PACz5UYnTL5ogvURLwUU+HhehHadn0HmkHVMuyiABMnha220TopTA7pU5xE/fzwWLTNHxPcvVO+Y8xYOehetwDEG3xIjMQ30HxEMPK58tGhMKZ1TmkQVpzhH4VxBm8Zmc8x8NT7+7RygdhkIgbonnpptLkgsM0RRmxT7GbNLfsn40K5hhsPkn+2O5E9bCcAzRnlB/VZLFwpQ/mh149xhKekRiw67qfHozoa1QPGtg4ksWNfihFE/cz9SefgWKxoTNaSBdanqlxovyLYhzkqubiPi1dSnAB8jfs1KbFqDmu20VbwOzOkkVGoriMAvTUUD2S2MKby077gRRQTi20d9GDwEZIMnMR2pEpyv5Wrh5w+gBWQI6G5jwLZCACKEZQFEoOReUERzQrfXXg+G7SewElGTNZGxOcmfIf9D9/7yOyyBiTJFJL0faaFNrOSTwVLOvJorowrTrY73/tVo3Yk2FjaAFFTDiuZmSbNI2Daa3jKLClK5QofQEhnU6DjujGna2zAJ6rLahFrw/4Yhg9KQKAVM6P3Mhw7Uj8eurwHlDLkm3vqhp4EwOGdg"
+      }
+    }
+  ],
   "packageRules": [
     {
       "groupName": "all non-major dependencies",
