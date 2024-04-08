@@ -30,7 +30,7 @@ jobs:
           java-version: '20'
 
       - name: create local.properties from secret variables
-        run: echo API_KEY=${{ secrets.API_KEY }} > ./local.properties
+        run: scripts/generate_local_properties.sh
 
       - name: setup gradle
         uses: gradle/gradle-build-action@v3
