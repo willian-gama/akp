@@ -94,14 +94,6 @@
         "junit:junit",
         "androidx.test:core-ktx"
       ]
-    },
-    {
-      "matchDatasources": [
-        "maven"
-      ],
-      "registryUrls": [
-        "https://maven.pkg.github.com/willian-gama/kgp"
-      ]
     }
   ],
   "ignoreDeps": [
