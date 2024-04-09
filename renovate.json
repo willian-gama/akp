@@ -101,9 +101,6 @@
       ],
       "matchPackagePatterns": [
         "com.willian.gama:kgp"
-      ],
-      "registryUrls": [
-        "https://maven.pkg.github.com/willian-gama/kgp"
       ]
     }
   ],
