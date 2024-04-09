@@ -20,7 +20,7 @@
   "branchPrefix": "renovate/",
   "additionalBranchPrefix": "update-libs/",
   "commitMessageAction": "update",
-  "commitMessageExtra": "from {{{currentValue}}} to {{#if isPinDigest}}{{{newDigestShort}}}{{else}}{{#if isMajor}}{{prettyNewMajor}}{{else}}{{#if isSingleVersion}}{{prettyNewVersion}}{{else}}{{#if newValue}}{{{newValue}}}{{else}}{{{newDigestShort}}}{{/if}}{{/if}}{{/if}}{{/if}}",
+  "commitMessageExtra": "from v{{{currentValue}}} to {{#if isPinDigest}}{{{newDigestShort}}}{{else}}{{#if isMajor}}{{prettyNewMajor}}{{else}}{{#if isSingleVersion}}{{prettyNewVersion}}{{else}}{{#if newValue}}{{{newValue}}}{{else}}{{{newDigestShort}}}{{/if}}{{/if}}{{/if}}{{/if}}",
   "hostRules": [
     {
       "matchHost": "maven.pkg.github.com",
@@ -106,8 +106,5 @@
         "https://maven.pkg.github.com/willian-gama/kgp"
       ]
     }
-  ],
-  "ignoreDeps": [
-    "androidx.emoji2:emoji2"
   ]
 }
