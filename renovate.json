@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:best-practices"
+    "config:base"
   ],
   "schedule": [
     "before 8am on the first day of the month"
@@ -105,13 +105,6 @@
       "registryUrls": [
         "https://maven.pkg.github.com/willian-gama/kgp"
       ]
-    },
-    {
-      "matchDatasources": [
-        "docker",
-        "action"
-      ],
-      "pinDigests": false
     }
   ]
 }
