@@ -108,7 +108,8 @@
     },
     {
       "matchDatasources": [
-        "docker"
+        "docker",
+        "action"
       ],
       "pinDigests": false
     }
