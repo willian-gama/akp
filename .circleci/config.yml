@@ -12,16 +12,16 @@ workflows:
               only:
                 - chore/circleci
       - automation/unit_tests:
-          build_variant: fullDebug
+          build_variant: debug
           run_screenshot_tests: true
           requires:
             - automation/setup
       - automation/ui_tests:
-          build_variant: fullDebug
+          build_variant: debug
           requires:
             - automation/setup
       - automation/code_linting:
-          build_variant: fullDebug
+          build_variant: debug
           requires:
             - automation/setup
       - automation/code_coverage:
