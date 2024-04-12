@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  automation: willian-gama/android-ci@1.0.23
+  automation: willian-gama/android-ci@1.0.24
 
 workflows:
   build_and_test:
