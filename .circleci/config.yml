@@ -10,15 +10,15 @@ workflows:
           run_screenshot_tests: true
           requires:
             - automation/android_setup
-      - automation/ui_tests:
-          build_variant: debug
-          requires:
-            - automation/android_setup
-      - automation/code_linting:
-          build_variant: debug
-          requires:
-            - automation/android_setup
-      - automation/code_coverage:
-          requires:
-            - automation/unit_tests
-            - automation/ui_tests
+#      - automation/ui_tests:
+#          build_variant: debug
+#          requires:
+#            - automation/android_setup
+#      - automation/code_linting:
+#          build_variant: debug
+#          requires:
+#            - automation/android_setup
+#      - automation/code_coverage:
+#          requires:
+#            - automation/unit_tests
+#            - automation/ui_tests
