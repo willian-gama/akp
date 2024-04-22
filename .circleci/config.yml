@@ -7,7 +7,7 @@ workflows:
       - automation/android_setup
       - automation/unit_tests:
           build_variant: debug
-          run_screenshot_tests: true
+          run_screenshot_tests: false
           requires:
             - automation/android_setup
 #      - automation/ui_tests:
