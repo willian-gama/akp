@@ -42,3 +42,5 @@ group_unit_tests_per_module() {
 }
 
 group_unit_tests_per_module
+
+# https://stackoverflow.com/questions/42052154/extract-the-text-of-string-after-a-word-in-bash
