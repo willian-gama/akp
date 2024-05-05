@@ -45,7 +45,8 @@ workflows:
     when:
       equal: [ firebase, << pipeline.parameters.action >> ]
     jobs:
-      - automation/android_setup
+      - automation/android_setup:
+          build_variant: debug
       - automation/firebase_app_distribution:
           requires:
             - automation/android_setup
