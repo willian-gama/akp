@@ -20,7 +20,7 @@ class TextButtonComposableScreenshotTest {
         paparazzi.snapshot {
             KotlinComposeAppTheme {
                 TextButtonComposable(
-                    text = "Skips",
+                    text = "Skip",
                     onClick = {}
                 )
             }
