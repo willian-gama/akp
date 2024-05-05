@@ -96,6 +96,12 @@
       ]
     },
     {
+      "groupName": "private dependencies",
+      "matchPackagePatterns": [
+        "com.willian.gama:kgp"
+      ]
+    },
+    {
       "matchDatasources": [
         "maven"
       ],
