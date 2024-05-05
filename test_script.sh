@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# NOT USED, ONLY FOR TESTING PURPOSES
+# NOT USED, ONLY FOR TESTING PURPOSES.
 
 SPLIT_UNIT_TEST_CLASS_NAMES="feature.upcoming_movies.com.android.dev.engineer.kotlin.compose.feature.upcoming_movies.test.screen.UpcomingMoviesScreenComposableScreenshotTest"
 BUILD_VARIANT=debug
