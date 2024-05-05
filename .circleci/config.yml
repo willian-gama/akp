@@ -1,24 +1,29 @@
 version: '2.1'
 orbs:
-  automation: willian-gama/android-ci@1.0.34
+  automation: willian-gama/android-ci@dev:chore/split-tests
 workflows:
   build_and_test:
     jobs:
       - automation/android_setup
       - automation/unit_tests:
           build_variant: debug
-          run_screenshot_tests: true
+          parallelism: 3
           requires:
             - automation/android_setup
-#      - automation/ui_tests:
-#          build_variant: debug
-#          requires:
-#            - automation/android_setup
-#      - automation/code_linting:
-#          build_variant: debug
-#          requires:
-#            - automation/android_setup
-#      - automation/code_coverage:
-#          requires:
-#            - automation/unit_tests
-#            - automation/ui_tests
+      - automation/screenshot_tests:
+          build_variant: debug
+          requires:
+            - automation/android_setup
+      - automation/ui_tests:
+          build_variant: debug
+          parallelism: 3
+          requires:
+            - automation/android_setup
+      - automation/code_linting:
+          build_variant: debug
+          requires:
+            - automation/android_setup
+      - automation/code_coverage:
+          requires:
+            - automation/unit_tests
+            - automation/ui_tests
