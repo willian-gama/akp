@@ -3,17 +3,8 @@ version: 2.1
 orbs:
   automation: willian-gama/android-ci@dev:chore/split-tests
 
-parameters:
-  action:
-    description: action type to execute workflow
-    type: enum
-    enum: [build, firebase]
-    default: build
-
 workflows:
   build_and_test:
-    when:
-      equal: [ build, << pipeline.parameters.action >> ]
     jobs:
       - automation/android_setup:
           build_variant: debug
@@ -39,14 +30,3 @@ workflows:
           requires:
             - automation/unit_tests
             - automation/ui_tests
-
-  release-firebase-build:
-    when:
-      equal: [ firebase, << pipeline.parameters.action >> ]
-    jobs:
-      - automation/android_setup:
-          build_variant: debug
-      - automation/firebase_app_distribution:
-          build_variant: debug
-          requires:
-            - automation/android_setup
