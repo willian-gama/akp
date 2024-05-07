@@ -133,7 +133,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        api-level: [ 26, 28 ]
+        api-level: [ 29 ]
     steps:
       - name: checkout project sources
         uses: actions/checkout@v4

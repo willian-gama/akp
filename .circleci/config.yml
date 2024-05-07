@@ -19,7 +19,7 @@ workflows:
             - automation/android_setup
       - automation/ui_tests:
           build_variant: debug
-          parallelism: 1
+          parallelism: 2
           requires:
             - automation/android_setup
       - automation/code_linting:
