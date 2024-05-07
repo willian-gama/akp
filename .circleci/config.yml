@@ -9,6 +9,10 @@ workflows:
     jobs:
       - automation/android_setup:
           build_variant: debug
+          filters:
+            branches:
+              only:
+                - chore/circleci-orb
       - automation/unit_tests:
           build_variant: debug
           parallelism: 2
