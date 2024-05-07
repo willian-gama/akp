@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  # For testing purposes, this will be removed later
+  # For testing purposes, this will be removed later.
   automation: willian-gama/android-ci@dev:chore/cache
 
 workflows:
