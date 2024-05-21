@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'com.google.devtools.ksp'
     id 'com.google.dagger.hilt.android'
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -25,10 +26,6 @@ android {
 
     buildFeatures {
         compose true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion libs.versions.compose.compiler.get()
     }
 
     testOptions {
