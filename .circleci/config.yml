@@ -8,7 +8,6 @@ workflows:
   build_and_test:
     jobs:
       - automation/android_setup:
-          build_variant: debug
           filters:
             branches:
               only:
