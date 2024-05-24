@@ -61,6 +61,7 @@ dependencies {
     implementation libs.timber
     implementation libs.hilt.android
     kapt libs.hilt.android.compiler
+    debugImplementation libs.leakcanary
 
     testImplementation libs.test.coroutines
     testImplementation libs.test.junit
