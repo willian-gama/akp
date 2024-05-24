@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   # For testing purposes, this will be removed later.
-  automation: willian-gama/android-ci@dev:chore/update-orb
+  automation: willian-gama/android-ci@dev:chore/update-orb #1
 
 workflows:
   build_and_test:
