@@ -1,6 +1,6 @@
 # https://docs.gradle.org/current/userguide/platforms.html#sub::toml-dependencies-format
 [versions]
-android = "8.4.1"
+android = "8.4.2"
 androidx-junit = "1.1.5"
 kotlin = "2.0.0"
 ksp = "2.0.0-1.0.22"
