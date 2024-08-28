@@ -3,6 +3,7 @@
 LOCAL_PROPERTIES="local.properties"
 touch $LOCAL_PROPERTIES
 
+# Secret keys: https://drive.google.com/drive/u/0/folders/1UXqMF2D3OijaLKPhTj6NDnX8zut3kQhW
 {
   # The Movie API
   echo "api_key=$API_KEY"
