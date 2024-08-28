@@ -25,10 +25,8 @@ localProperties.load(file("local.properties").newDataInputStream())
 apply plugin: "com.willian.gama.kgp.code.analysis"
 
 code_analysis_params {
-    sonarProjectName = rootProject.name
-    sonarProjectKey = application_id
-    sonarProjectVersion = version_name
-    sonarToken = localProperties.getProperty("sonar_token")
+    buildType = "debug"
+    kotlinVersion = libs.plugins.kotlin.get().version
 }
 
 subprojects {
