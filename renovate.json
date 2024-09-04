@@ -25,9 +25,7 @@
     {
       "matchHost": "maven.pkg.github.com",
       "hostType": "maven",
-      "encrypted": {
-        "token": "wcFMA/xDdHCJBTolAQ/8CHQpNwHiZLgqqOCBTTZk3+DsWXL2sOK1OHGs4IrWPB+FTu9QK7Vs2L30aG2DU8YmCVEQ1D0n1TwEReV2cwcetH0+wlQZwDAKMN/JBDiTR3GKEHNgthjFyskRzgCjpkNX+xihAMW/4ttLa2uucbJ6pV8D3qEjA1jHOXKNRhgyZX3F2pE31WpO1JZYKFWYuzsf25w9fNa2KjTkOU2zMzWB5zrFRVrV/dmAbZWWnkpmyGz1MNK9QPkh/zALKliP+WOuC4yIY8oTGYQd0gS6WlDqDmJ2GV21CSCHN6aAhE58hE+Y1MgvUHmeJ80MB3uqUzudqybytchdVTpuOiqiN+vR6ipQLFKzf8MPJKFgqHmer4nibukA63pVHruEEMAzYZgDDkAblW7WfTgR3jmYXnriW43aQBsRo8sNqn/CcAyDc++YQj9kocv90MZ4hEKhEKGDYj1oOex7XJ1HkSZEERr86fmqWFx6PefqumqLouj5J5DFb0GGvh3cmc3j+tJMkg44iDv20dUyfJy9DaWk21mzU0FOJ5sjormXCR8jFVCq4ByeReVUbBGq68AhsohG1/Aoh3tzK5YreJBRiwRqVQtommBL9vaNzUmRI/msoqYWro+oHTH/ZA+cGnsenASoP0s+KXHq2muQ0rHlztLtFGw4S+8vpHMziw1MNM8OJqGQUiPSewFdqdHw4g01+6Mw9jQWQqYx2IXDIYV5b8hmY7+f+xTv6EzyI0zpOrL5gaFS0dpkEBIrsQ/7aj927rBzf+kDArnpqtkFxw8bgvmjLWqG6ZBbDokMxpIJOYWMmSGkayUugB22eo503zkVVnUWMie8W8aDUfs+d421pifxDQ"
-      }
+      "token": "{{ secrets.GPR_TOKEN }}"
     }
   ],
   "packageRules": [

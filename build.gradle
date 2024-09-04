@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        application_id = 'com.android.dev.engineer.kotlin.compose'
+        application_id = "com.android.dev.engineer.kotlin.compose"
         version_name = "1.0"
     }
 
