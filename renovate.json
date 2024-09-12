@@ -44,8 +44,7 @@
       "groupName": "kotlin dependencies",
       "matchPackagePatterns": [
         "org.jetbrains.kotlin:*",
-        "com.google.devtools.ksp",
-        "composeOptions"
+        "com.google.devtools.ksp"
       ]
     },
     {
@@ -67,19 +66,6 @@
       "groupName": "sonar",
       "matchPackagePatterns": [
         "org.sonarqube"
-      ]
-    },
-    {
-      "groupName": "target sdk compatibility",
-      "matchPackagePatterns": [
-        "androidx.navigation:navigation-compose",
-        "androidx.activity:activity-compose"
-      ]
-    },
-    {
-      "groupName": "ktlint",
-      "matchPackagePatterns": [
-        "org.jlleitschuh.gradle.ktlint"
       ]
     },
     {

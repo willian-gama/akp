@@ -8,7 +8,8 @@ code-analysis = "1.0.27"
 paparazzi = "1.3.4" # Version 1.3.X requires Android Studio 8.X, check the release notes: https://github.com/cashapp/paparazzi/tags
 gradle = "8.7"
 compose-activity = "1.9.2"
-compose = "1.7.0"
+#noinspection GradleDependency
+compose = "1.7.0" # Version 1.7.1 breaks androidx.compose.material.icons.Icons
 paging = "3.3.2"
 compose-coil = "2.7.0"
 compose-navigation = "2.8.0"
