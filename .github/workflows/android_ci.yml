@@ -133,7 +133,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        api-level: [ 33 ]
+        api-level: [ 34 ]
     steps:
       - name: checkout project sources
         uses: actions/checkout@v4
@@ -179,6 +179,9 @@ jobs:
           force-avd-creation: false
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -wipe-data # Emulator options reference: https://developer.android.com/studio/run/emulator-commandline
           disable-animations: true
+          target: google_apis
+          arch: x86_64
+          profile: pixel_3a_xl
           script: ./gradlew connectedDebugAndroidTest # Run ui tests: https://developer.android.com/studio/test/command-line#run-tests-build-variants
 
       - name: archive ui test reports on failure
