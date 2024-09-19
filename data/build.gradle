@@ -59,4 +59,5 @@ dependencies {
     androidTestImplementation libs.test.coroutines
     androidTestImplementation libs.test.core.ktx
     androidTestImplementation libs.test.runner
+    androidTestImplementation libs.mockk
 }

@@ -1,6 +1,6 @@
 # https://docs.gradle.org/current/userguide/platforms.html#sub::toml-dependencies-format
 [versions]
-android = "8.6.0"
+android = "8.6.1"
 androidx-junit = "1.2.1"
 kotlin = "2.0.20"
 ksp = "2.0.20-1.0.25"
@@ -31,6 +31,7 @@ moshi = "1.15.1"
 okhttp = "4.12.0"
 chucker = "4.0.0"
 leakcanary = "2.14"
+mockk = "1.13.12"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android" }
@@ -51,6 +52,7 @@ compose-hilt-navigation = { module = "androidx.hilt:hilt-navigation-compose", ve
 compose-activity = { module = "androidx.activity:activity-compose", version.ref = "compose-activity" }
 compose-coil = { module = "io.coil-kt:coil-compose", version.ref = "compose-coil" }
 code-analysis = { module = "com.willian.gama:kgp", version.ref = "code-analysis" }
+mockk = { module = "io.mockk:mockk-android", version.ref = "mockk" }
 splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "splashscreen" } # Splash screen: https://developer.android.com/develop/ui/views/launch/splash-screen/migrate
 crypto = { module = "androidx.security:security-crypto", version.ref = "crypto" } # Encrypt data: https://developer.android.com/topic/security/data#include-library
 paging-runtime = { module = "androidx.paging:paging-runtime-ktx", version.ref = "paging" } # Paging: https://developer.android.com/jetpack/androidx/releases/paging#declaring_dependencies
