@@ -133,7 +133,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        api-level: [ 29 ]
+        api-level: [ 30 ]
         profile: [ pixel_3a_xl ]
         arch: [ x86_64 ]
     steps:
