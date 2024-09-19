@@ -179,9 +179,6 @@ jobs:
           force-avd-creation: false
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -wipe-data # Emulator options reference: https://developer.android.com/studio/run/emulator-commandline
           disable-animations: true
-          target: google_apis
-          arch: x86_64
-          # profile: Pixel 3 XL # avdmanager list device
           script: ./gradlew connectedDebugAndroidTest # Run ui tests: https://developer.android.com/studio/test/command-line#run-tests-build-variants
 
       - name: archive ui test reports on failure
