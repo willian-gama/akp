@@ -134,7 +134,7 @@ jobs:
       fail-fast: false
       matrix:
         api-level: [ 34 ]
-        device: [ Pixel_3_XL ]
+        profile: [ Pixel_3_XL ]
         arch: [ x86_64 ]
     steps:
       - name: checkout project sources
@@ -162,7 +162,7 @@ jobs:
           path: |
             ~/.android/avd/*
             ~/.android/adb*
-          key: avd-${{ matrix.api-level }}-${{ matrix.device }}-${{ matrix.arch }}
+          key: avd-${{ matrix.api-level }}-${{ matrix.profile }}-${{ matrix.arch }}
 
       - name: create avd and generate snapshot for caching
         if: steps.avd-cache.outputs.cache-hit != 'true'
@@ -170,7 +170,7 @@ jobs:
         with:
           api-level: ${{ matrix.api-level }}
           target: google_apis
-          device: ${{ matrix.device }}
+          profile: ${{ matrix.profile }}
           arch: ${{ matrix.arch }}
           force-avd-creation: false
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
@@ -182,7 +182,7 @@ jobs:
         with:
           api-level: ${{ matrix.api-level }}
           target: google_apis
-          device: ${{ matrix.device }}
+          profile: ${{ matrix.profile }}
           arch: ${{ matrix.arch }}
           force-avd-creation: false
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -wipe-data # Emulator options reference: https://developer.android.com/studio/run/emulator-commandline
