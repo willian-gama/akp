@@ -5,6 +5,7 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.android.dev.engineer.kotlin.compose.data.di.SharedPrefsModule.provideEncryptedSharedPreferences
 import com.android.dev.engineer.kotlin.compose.data.shared_preferences.UserEncryptedSharedPrefsImpl
+import com.android.dev.engineer.kotlin.compose.data.shared_preferences.UserEncryptedSharedPrefsImpl.Companion.SESSION_ID_KEY
 import io.mockk.spyk
 import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -34,7 +35,9 @@ class UserEncryptedSharedPrefsTest {
 
     @After
     fun tearDown() {
-        sharedPreferences.edit { clear() }
+        sharedPreferences.edit {
+            clear()
+        }
     }
 
     @Test
@@ -48,12 +51,14 @@ class UserEncryptedSharedPrefsTest {
 
     @Test
     fun testGetSessionIdNotCached() = runTest {
-        userEncryptedSharedPrefs.saveSessionId(sessionId = FAKE_SESSION_ID)
+        sharedPreferences.edit {
+            putString(SESSION_ID_KEY, FAKE_SESSION_ID)
+        }
         repeat(times = 2) {
             assertEquals(FAKE_SESSION_ID, userEncryptedSharedPrefs.getSessionId())
         }
         verify(exactly = 1) {
-            sharedPreferences.getString(FAKE_SESSION_ID, "")
+            sharedPreferences.getString(SESSION_ID_KEY, "")
         }
     }
 

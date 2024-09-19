@@ -24,12 +24,13 @@ class UserEncryptedSharedPrefsImpl(
     }
 
     override fun clearAll() {
+        cachedUserSharedPrefs.clear()
         sharedPreferences.edit {
             clear()
         }
     }
 
     companion object {
-        private const val SESSION_ID_KEY = "session_id_key"
+        const val SESSION_ID_KEY = "session_id_key"
     }
 }
