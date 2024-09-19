@@ -185,7 +185,7 @@ jobs:
           profile: ${{ matrix.profile }}
           arch: ${{ matrix.arch }}
           force-avd-creation: false
-          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -wipe-data # Emulator options reference: https://developer.android.com/studio/run/emulator-commandline
+          emulator-options: -no-audio -no-boot-anim -no-window -no-snapshot-save -verbose -wipe-data -gpu swiftshader_indirect # Emulator options reference: https://developer.android.com/studio/run/emulator-commandline
           disable-animations: true
           script: ./gradlew connectedDebugAndroidTest # Run ui tests: https://developer.android.com/studio/test/command-line#run-tests-build-variants
 
