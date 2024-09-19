@@ -128,12 +128,12 @@ jobs:
           path: "**/build/reports/paparazzi"
 
   ui_tests:
-    needs: code_linting
+    # needs: code_linting
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        api-level: [ 34 ]
+        api-level: [ 33 ]
     steps:
       - name: checkout project sources
         uses: actions/checkout@v4
