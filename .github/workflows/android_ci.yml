@@ -133,7 +133,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        api-level: [ 27 ]
+        api-level: [ 34 ]
         profile: [ pixel_3a_xl ]
         arch: [ x86_64 ]
     steps:
@@ -168,11 +168,13 @@ jobs:
         if: steps.avd-cache.outputs.cache-hit != 'true'
         uses: reactivecircus/android-emulator-runner@v2
         with:
+          avd-name: TestAvd
           api-level: ${{ matrix.api-level }}
           target: google_apis
           profile: ${{ matrix.profile }}
           arch: ${{ matrix.arch }}
-          force-avd-creation: false
+          force-avd-creation: true
+          emulator-port: 1234
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: false
           script: echo "Generated AVD snapshot for caching."
@@ -180,11 +182,13 @@ jobs:
       - name: run ui tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
+          avd-name: TestAvd
           api-level: ${{ matrix.api-level }}
           target: google_apis
           profile: ${{ matrix.profile }}
           arch: ${{ matrix.arch }}
-          force-avd-creation: false
+          force-avd-creation: true
+          emulator-port: 1234
           emulator-options: -no-audio -no-boot-anim -no-window -no-snapshot-save -verbose -wipe-data -gpu swiftshader_indirect # Emulator options reference: https://developer.android.com/studio/run/emulator-commandline
           disable-animations: true
           script: ./gradlew connectedDebugAndroidTest # Run ui tests: https://developer.android.com/studio/test/command-line#run-tests-build-variants
