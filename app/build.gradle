@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'com.google.devtools.ksp'
     id 'com.google.dagger.hilt.android'
+    alias(libs.plugins.serialization)
     alias(libs.plugins.compose.compiler)
 }
 
@@ -70,6 +71,7 @@ dependencies {
     testImplementation libs.test.core.ktx
     testImplementation libs.test.mockwebserver
     testImplementation libs.test.hilt
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3"
 
     androidTestImplementation libs.test.compose.test.junit4
     debugImplementation libs.test.compose.test.manifest
