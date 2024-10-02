@@ -62,7 +62,7 @@ jobs:
           path: "**/build/reports/detekt/*.html"
 
   unit_tests:
-    needs: code_linting
+    # needs: code_linting
     runs-on: ubuntu-latest
     steps:
       - name: checkout project sources
@@ -95,7 +95,7 @@ jobs:
           path: "**/build/reports/tests/testDebugUnitTest"
 
   screenshot_tests:
-    needs: code_linting
+    # needs: code_linting
     runs-on: ubuntu-latest
     steps:
       - name: checkout project sources
@@ -128,7 +128,7 @@ jobs:
           path: "**/build/reports/paparazzi"
 
   ui_tests:
-    needs: code_linting
+    # needs: code_linting
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
