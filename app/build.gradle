@@ -46,6 +46,7 @@ dependencies {
 
     implementation libs.compose.activity
     implementation libs.compose.material
+    implementation libs.compose.material.icons.core
     implementation libs.compose.tooling.preview
     debugImplementation libs.compose.tooling
     implementation libs.compose.navigation

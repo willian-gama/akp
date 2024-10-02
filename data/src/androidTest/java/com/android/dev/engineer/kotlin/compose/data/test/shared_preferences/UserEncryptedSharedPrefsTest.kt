@@ -7,7 +7,6 @@ import com.android.dev.engineer.kotlin.compose.data.di.SharedPrefsModule.provide
 import com.android.dev.engineer.kotlin.compose.data.shared_preferences.UserEncryptedSharedPrefsImpl
 import com.android.dev.engineer.kotlin.compose.data.shared_preferences.UserEncryptedSharedPrefsImpl.Companion.SESSION_ID_KEY
 import io.mockk.spyk
-import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.After
@@ -45,7 +44,7 @@ class UserEncryptedSharedPrefsTest {
         userEncryptedSharedPrefs.saveSessionId(sessionId = FAKE_SESSION_ID)
         assertEquals(FAKE_SESSION_ID, userEncryptedSharedPrefs.getSessionId())
         // Issue with mockk and reactive circus running api 27
-        //verify(exactly = 0) { sharedPreferences.getString(FAKE_SESSION_ID, "") }
+        // verify(exactly = 0) { sharedPreferences.getString(FAKE_SESSION_ID, "") }
     }
 
     @Test
