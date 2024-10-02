@@ -4,8 +4,6 @@ import android.content.Context
 import com.android.dev.engineer.kotlin.compose.data.adapter.CallAdapterFactory
 import com.android.dev.engineer.kotlin.compose.data.api.TheMovieApi
 import com.android.dev.engineer.kotlin.compose.data.api.TheMovieApi.Companion.BASE_API_URL
-import com.android.dev.engineer.kotlin.compose.data.api.authentication.AuthenticationApi
-import com.android.dev.engineer.kotlin.compose.data.api.movie.MovieApi
 import com.android.dev.engineer.kotlin.compose.data.interceptor.ApiKeyInterceptor
 import com.android.dev.engineer.kotlin.compose.data.use_case.api_error_handling.ApiErrorHandlingUseCase
 import com.chuckerteam.chucker.api.ChuckerCollector
@@ -116,17 +114,5 @@ object NetworkModule {
     @Provides
     fun provideTheMovieApi(retrofitBuilder: Retrofit.Builder): TheMovieApi {
         return retrofitBuilder.build().create(TheMovieApi::class.java)
-    }
-
-    @Singleton
-    @Provides
-    fun provideAuthenticationApi(theMovieApi: TheMovieApi): AuthenticationApi {
-        return theMovieApi
-    }
-
-    @Singleton
-    @Provides
-    fun provideMovieApi(theMovieApi: TheMovieApi): MovieApi {
-        return theMovieApi
     }
 }

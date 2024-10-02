@@ -15,7 +15,9 @@ import com.android.dev.engineer.kotlin.compose.ui.util.ExcludeFromJacocoGenerate
 fun MovieScreen(
     movieViewModel: MovieViewModel = hiltViewModel()
 ) {
-    MovieScreenComposable(movieId = movieViewModel.movieArgs.id)
+    MovieScreenComposable(
+        movieId = movieViewModel.movieArgs.id
+    )
 }
 
 @Composable

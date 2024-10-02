@@ -11,9 +11,5 @@ import javax.inject.Inject
 class MovieViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-    companion object {
-        const val ID_ARG = "id"
-    }
-
     val movieArgs = savedStateHandle.toRoute<MovieArgs>()
 }
