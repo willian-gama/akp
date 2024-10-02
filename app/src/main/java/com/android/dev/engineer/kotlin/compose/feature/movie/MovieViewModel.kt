@@ -2,6 +2,8 @@ package com.android.dev.engineer.kotlin.compose.feature.movie
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import androidx.navigation.toRoute
+import com.android.dev.engineer.kotlin.compose.feature.main.MovieArgs
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -13,6 +15,5 @@ class MovieViewModel @Inject constructor(
         const val ID_ARG = "id"
     }
 
-    // TODO make it private
-    val movieId by lazy { requireNotNull(savedStateHandle.get<Int>(ID_ARG)) }
+    val movieArgs = savedStateHandle.toRoute<MovieArgs>()
 }
