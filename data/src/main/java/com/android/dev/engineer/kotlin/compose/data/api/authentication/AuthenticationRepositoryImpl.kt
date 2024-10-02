@@ -1,25 +1,28 @@
 package com.android.dev.engineer.kotlin.compose.data.api.authentication
 
-import com.android.dev.engineer.kotlin.compose.data.api.TheMovieApi
-import com.android.dev.engineer.kotlin.compose.data.domain.network.*
+import com.android.dev.engineer.kotlin.compose.data.domain.network.Authenticated
+import com.android.dev.engineer.kotlin.compose.data.domain.network.LogOut
+import com.android.dev.engineer.kotlin.compose.data.domain.network.NewSession
+import com.android.dev.engineer.kotlin.compose.data.domain.network.Session
+import com.android.dev.engineer.kotlin.compose.data.domain.network.SignIn
 import javax.inject.Inject
 
 class AuthenticationRepositoryImpl @Inject constructor(
-    private val theMovieApi: TheMovieApi
+    private val authenticationApi: AuthenticationApi
 ) : AuthenticationRepository {
     override suspend fun getRequestToken(): Authenticated {
-        return theMovieApi.getRequestToken()
+        return authenticationApi.getRequestToken()
     }
 
     override suspend fun login(signIn: SignIn): Authenticated {
-        return theMovieApi.login(signIn = signIn)
+        return authenticationApi.login(signIn = signIn)
     }
 
     override suspend fun getNewSession(session: Session): NewSession {
-        return theMovieApi.getNewSession(session = session)
+        return authenticationApi.getNewSession(session = session)
     }
 
     override suspend fun logOut(logOut: LogOut) {
-        theMovieApi.logOut(logOut)
+        authenticationApi.logOut(logOut)
     }
 }
