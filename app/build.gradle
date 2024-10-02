@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'com.google.devtools.ksp'
     id 'com.google.dagger.hilt.android'
+    alias(libs.plugins.serialization)
     alias(libs.plugins.compose.compiler)
 }
 
@@ -63,6 +64,7 @@ dependencies {
     implementation libs.hilt.android
     kapt libs.hilt.android.compiler
     debugImplementation libs.leakcanary
+    implementation libs.kotlinx.serialization.json
 
     testImplementation libs.test.coroutines
     testImplementation libs.test.junit

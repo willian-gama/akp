@@ -1,6 +1,6 @@
 # https://docs.gradle.org/current/userguide/platforms.html#sub::toml-dependencies-format
 [versions]
-android = "8.6.1"
+android = "8.7.0"
 androidx-junit = "1.2.1"
 kotlin = "2.0.20"
 ksp = "2.0.20-1.0.25"
@@ -31,11 +31,13 @@ okhttp = "4.12.0"
 chucker = "4.0.0"
 leakcanary = "2.14"
 mockk = "1.13.12"
+kotlinx-serialization-json = "1.7.3"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android" }
 android-library = { id = "com.android.library", version.ref = "android" }
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "paparazzi" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
@@ -52,6 +54,7 @@ compose-hilt-navigation = { module = "androidx.hilt:hilt-navigation-compose", ve
 compose-activity = { module = "androidx.activity:activity-compose", version.ref = "compose-activity" }
 compose-coil = { module = "io.coil-kt:coil-compose", version.ref = "compose-coil" }
 code-analysis = { module = "com.willian.gama:kgp", version.ref = "code-analysis" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
 splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "splashscreen" } # Splash screen: https://developer.android.com/develop/ui/views/launch/splash-screen/migrate
 crypto = { module = "androidx.security:security-crypto", version.ref = "crypto" } # Encrypt data: https://developer.android.com/topic/security/data#include-library
 paging-runtime = { module = "androidx.paging:paging-runtime-ktx", version.ref = "paging" } # Paging: https://developer.android.com/jetpack/androidx/releases/paging#declaring_dependencies
