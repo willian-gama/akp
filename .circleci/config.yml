@@ -10,7 +10,7 @@ workflows:
           filters:
             branches:
               only:
-                - chore/*
+                - "chore/*"
       - automation/unit_tests:
           build_variant: debug
           parallelism: 2
