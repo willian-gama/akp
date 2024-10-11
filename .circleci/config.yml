@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  automation: willian-gama/android-ci@dev:chore/circleci-orb
+  automation: willian-gama/android-ci@dev:chore/validations
 
 workflows:
   build_and_test:
