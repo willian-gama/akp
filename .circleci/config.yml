@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   # For testing purposes, this will be removed later.
-  automation: willian-gama/android-ci@dev:chore/update-orb #1
+  automation: willian-gama/android-ci@dev:chore/circleci-orb
 
 workflows:
   build_and_test:
@@ -11,7 +11,7 @@ workflows:
           filters:
             branches:
               only:
-                - chore/circleci-orb
+                - chore/*
       - automation/unit_tests:
           build_variant: debug
           parallelism: 2
