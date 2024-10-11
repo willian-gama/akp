@@ -25,6 +25,13 @@ android {
             includeAndroidResources = true // Robolectric config: https://robolectric.org/getting-started
         }
     }
+
+    packagingOptions {
+        resources {
+            // Required for mockk-android
+            merges += "META-INF/LICENSE*.md"
+        }
+    }
 }
 
 kapt {
@@ -59,4 +66,5 @@ dependencies {
     androidTestImplementation libs.test.coroutines
     androidTestImplementation libs.test.core.ktx
     androidTestImplementation libs.test.runner
+    androidTestImplementation libs.test.mockk.android
 }

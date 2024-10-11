@@ -25,9 +25,7 @@
     {
       "matchHost": "maven.pkg.github.com",
       "hostType": "maven",
-      "encrypted": {
-        "token": "wcFMA/xDdHCJBTolAQ/+ICBx6HwH8jC8/O3VLsPjcEZxz/Kekl1DCH38gyLzYn76QKgHmYtCthymDhLQWp4CFxF95SOrOCHaX6S3g4O/BqsIH2iGVOYe1VazIJN3e9dZgMM2B2xTe5/l1FnlAKTuUSA3bHpBU6ehfMWgHzYZqYWovUyRSmxPvoglDmdonoBI4Xlxs+BkzLStIV4A8bgi9Ra8/2gttT+6cWiFtXwZd4eA3CiBMoVqGsb76KxyXVYU+iOwwRazQALutIztppeZk0D/6PZqkt0Ba4a3rRWYIPdQU8wK2hOWi59iDZfDhns7WvKxr1NNl4LyJywsfkTqsmdT+4dmow+wmTcXqEzubft2QT2KFzSWucPY2clouellcfhGC1V7EJO+9i5L/MGG6S+SbQgXI4vI4vzVtXCqyXVdUYLCBokLCjTjN4N3S21CVVkUDMI75fhLjaGxZBLv/CA5SCONSROAnsNq1lsT9al6NSoN73GEdZWtbvIzKvpAw3OrbdsTIsia1rIjJLZtpfsFq5AbGwGIf0iBbKDRiPS2FKCSkcda3gqnMBodew+ByBkAi5bQBlE6YbIzbc96KqcREPWM4I/jX2lY9j6vakc3RlF5xf8o7mD2sIgIRDRzVeOlIlLZ8jCtJXgpRYTqGEdkaOnzivnM/3mZJT9zVFn/K4rGtCTo421zARdCG+XSewG8JyskJ9zDT17faFxK25r74T6O1KrYBifLovKdihcDYkYKJcfcKOn9BR+OY+bqyEO/00cvpGsfq8H35+k3U5SqYoAJudpcRAlncMQ9lLxLeNSJSdWgXoskj9WO+zyZ8y6EQCZNcoG9oaNVe2fnWoJFcyRYILKIry6K/A"
-      }
+      "token": "{{ secrets.GPR_TOKEN }}"
     }
   ],
   "packageRules": [
@@ -46,8 +44,7 @@
       "groupName": "kotlin dependencies",
       "matchPackagePatterns": [
         "org.jetbrains.kotlin:*",
-        "com.google.devtools.ksp",
-        "composeOptions"
+        "com.google.devtools.ksp"
       ]
     },
     {
@@ -72,24 +69,8 @@
       ]
     },
     {
-      "groupName": "target sdk compatibility",
-      "matchPackagePatterns": [
-        "androidx.navigation:navigation-compose",
-        "androidx.activity:activity-compose"
-      ]
-    },
-    {
-      "groupName": "ktlint",
-      "matchPackagePatterns": [
-        "org.jlleitschuh.gradle.ktlint"
-      ]
-    },
-    {
       "groupName": "test dependencies",
       "matchPackagePatterns": [
-        "com.google.truth:truth",
-        "androidx.compose.ui:ui-test-junit4",
-        "androidx.compose.ui:ui-test-manifest",
         "org.robolectric:robolectric",
         "junit:junit",
         "androidx.test:core-ktx"
