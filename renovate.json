@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:base"
   ],
   "schedule": [
     "before 8am on the first day of the month"
@@ -32,82 +32,65 @@
     {
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch",
+      "matchPackagePatterns": [
+        "*"
+      ],
       "matchUpdateTypes": [
         "minor",
         "patch"
-      ],
-      "matchPackageNames": [
-        "*"
       ]
     },
     {
       "groupName": "kotlin dependencies",
-      "matchPackageNames": [
-        "/org.jetbrains.kotlin:*/",
-        "/com.google.devtools.ksp/",
-        "/composeOptions/"
+      "matchPackagePatterns": [
+        "org.jetbrains.kotlin:*",
+        "com.google.devtools.ksp"
       ]
     },
     {
       "groupName": "coroutine dependencies",
-      "matchPackageNames": [
-        "/io.coil-kt:*/",
-        "/org.jetbrains.kotlinx:*/"
+      "matchPackagePatterns": [
+        "io.coil-kt:*",
+        "org.jetbrains.kotlinx:*"
       ]
     },
     {
       "groupName": "plugin dependencies",
-      "matchPackageNames": [
-        "/com.android.library/",
-        "/com.android.application/",
-        "/app.cash.paparazzi/"
+      "matchPackagePatterns": [
+        "com.android.library",
+        "com.android.application",
+        "app.cash.paparazzi"
       ]
     },
     {
       "groupName": "sonar",
-      "matchPackageNames": [
-        "/org.sonarqube/"
-      ]
-    },
-    {
-      "groupName": "target sdk compatibility",
-      "matchPackageNames": [
-        "/androidx.navigation:navigation-compose/",
-        "/androidx.activity:activity-compose/"
-      ]
-    },
-    {
-      "groupName": "ktlint",
-      "matchPackageNames": [
-        "/org.jlleitschuh.gradle.ktlint/"
+      "matchPackagePatterns": [
+        "org.sonarqube"
       ]
     },
     {
       "groupName": "test dependencies",
-      "matchPackageNames": [
-        "/com.google.truth:truth/",
-        "/androidx.compose.ui:ui-test-junit4/",
-        "/androidx.compose.ui:ui-test-manifest/",
-        "/org.robolectric:robolectric/",
-        "/junit:junit/",
-        "/androidx.test:core-ktx/"
+      "matchPackagePatterns": [
+        "org.robolectric:robolectric",
+        "junit:junit",
+        "androidx.test:core-ktx"
       ]
     },
     {
       "groupName": "private dependencies",
-      "matchPackageNames": [
-        "/com.willian.gama:kgp/"
+      "matchPackagePatterns": [
+        "com.willian.gama:kgp"
       ]
     },
     {
       "matchDatasources": [
         "maven"
       ],
+      "matchPackagePatterns": [
+        "com.willian.gama:kgp"
+      ],
       "registryUrls": [
         "https://maven.pkg.github.com/willian-gama/kgp"
-      ],
-      "matchPackageNames": [
-        "/com.willian.gama:kgp/"
       ]
     }
   ]

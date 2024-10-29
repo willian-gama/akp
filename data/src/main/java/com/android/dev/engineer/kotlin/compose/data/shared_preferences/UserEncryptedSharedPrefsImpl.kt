@@ -8,26 +8,29 @@ import com.android.dev.engineer.kotlin.compose.data.di.EncryptedSharedPrefsKey
 class UserEncryptedSharedPrefsImpl(
     @EncryptedSharedPrefsKey val sharedPreferences: SharedPreferences
 ) : UserEncryptedSharedPrefs {
-    companion object {
-        private const val SESSION_ID_KEY = "session_id_key"
-    }
+    private val cachedUserSharedPrefs = HashMap<String, String>()
 
-    @Synchronized
     override fun saveSessionId(sessionId: String) {
+        cachedUserSharedPrefs[SESSION_ID_KEY] = sessionId
         sharedPreferences.edit {
             putString(SESSION_ID_KEY, sessionId)
         }
     }
 
-    @Synchronized
     override fun getSessionId(): String {
-        return sharedPreferences.getString(SESSION_ID_KEY, "").orEmpty()
+        return cachedUserSharedPrefs.getOrPut(SESSION_ID_KEY) {
+            sharedPreferences.getString(SESSION_ID_KEY, "").orEmpty()
+        }
     }
 
-    @Synchronized
     override fun clearAll() {
+        cachedUserSharedPrefs.clear()
         sharedPreferences.edit {
             clear()
         }
+    }
+
+    companion object {
+        const val SESSION_ID_KEY = "session_id_key"
     }
 }
