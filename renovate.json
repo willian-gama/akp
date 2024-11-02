@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
   "schedule": [
     "before 8am on the first day of the month"
@@ -32,65 +32,65 @@
     {
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch",
-      "matchPackagePatterns": [
-        "*"
-      ],
       "matchUpdateTypes": [
         "minor",
         "patch"
+      ],
+      "matchPackageNames": [
+        "*"
       ]
     },
     {
       "groupName": "kotlin dependencies",
-      "matchPackagePatterns": [
-        "org.jetbrains.kotlin:*",
-        "com.google.devtools.ksp"
+      "matchPackageNames": [
+        "/org.jetbrains.kotlin:*/",
+        "/com.google.devtools.ksp/"
       ]
     },
     {
       "groupName": "coroutine dependencies",
-      "matchPackagePatterns": [
-        "io.coil-kt:*",
-        "org.jetbrains.kotlinx:*"
+      "matchPackageNames": [
+        "/io.coil-kt:*/",
+        "/org.jetbrains.kotlinx:*/"
       ]
     },
     {
       "groupName": "plugin dependencies",
-      "matchPackagePatterns": [
-        "com.android.library",
-        "com.android.application",
-        "app.cash.paparazzi"
+      "matchPackageNames": [
+        "/com.android.library/",
+        "/com.android.application/",
+        "/app.cash.paparazzi/"
       ]
     },
     {
       "groupName": "sonar",
-      "matchPackagePatterns": [
-        "org.sonarqube"
+      "matchPackageNames": [
+        "/org.sonarqube/"
       ]
     },
     {
       "groupName": "test dependencies",
-      "matchPackagePatterns": [
-        "org.robolectric:robolectric",
-        "junit:junit",
-        "androidx.test:core-ktx"
+      "matchPackageNames": [
+        "/org.robolectric:robolectric/",
+        "/junit:junit/",
+        "/androidx.test:core-ktx/"
       ]
     },
     {
       "groupName": "private dependencies",
-      "matchPackagePatterns": [
-        "com.willian.gama:kgp"
+      "matchPackageNames": [
+        "/com.willian.gama:kgp/"
       ]
     },
     {
       "matchDatasources": [
         "maven"
       ],
-      "matchPackagePatterns": [
-        "com.willian.gama:kgp"
-      ],
       "registryUrls": [
         "https://maven.pkg.github.com/willian-gama/kgp"
+      ],
+      "matchPackageNames": [
+        "/com.willian.gama:kgp/"
       ]
     }
   ]
