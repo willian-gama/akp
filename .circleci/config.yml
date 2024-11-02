@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   # Temporarily for testing purposes
-  automation: willian-gama/android-ci@dev:chore/validations
+  automation: willian-gama/android-ci@dev:chore/screenshot-tests
 
 workflows:
   build_and_test:
