@@ -26,6 +26,12 @@
       "matchHost": "maven.pkg.github.com",
       "hostType": "maven",
       "token": "{{ secrets.GPR_TOKEN }}"
+    },
+    {
+      "matchHost": "circleci.com",
+      "authType": "Token-Only",
+      "encrypted": {
+        "token": "{{ secrets.CIRCLECI }}"
     }
   ],
   "packageRules": [
