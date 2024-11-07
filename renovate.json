@@ -32,6 +32,7 @@
       "authType": "Token-Only",
       "encrypted": {
         "token": "{{ secrets.CIRCLECI }}"
+      }
     }
   ],
   "packageRules": [
