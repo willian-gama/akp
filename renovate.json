@@ -30,9 +30,7 @@
     {
       "matchHost": "circleci.com",
       "authType": "Token-Only",
-      "encrypted": {
-        "token": "wcFMA/xDdHCJBTolAQ//d89r4T+FWpb8SSKowcX9St3btEPgf8ZzOOctqLsBAwD2vrQnFXp9PwD7WAd/9BPWsZ4iQeOxTdMoL7h1SkIssCOVtNyCu9ncaO1/AVq0PR9UEVPuUICHVR0rbX0or1hRwO63LKy//TvuH/OHTBMTktCn0h4cPoLb/4ICyWgy/66AFGQ8xMu1oHjPQzS9iU4JIlfKOve689g9f/a/HLdXIYmD2pEKn+tCYa7n9dal38exzCXE+U+uEnxbkYs34ecCdrhuTgaScEmVkjfgVvXLet9XwnQ1FrJSsakuAgdnDVKErzNcTDIaapBbwpbrH3j+ba+DGZL0HkXx20Y/NtLr0PdIkJfH0htdw/DIVyIoXG+AoJUp2yRnsIZ+a4TYaMTMGzggv9j00k7iJGPEDn7HfxdfCULh1NteagrC7isXZfio3XbMHMoHlplKvMDVZhZUkMzEH40B7/fxwrpYNv1tNCTGIwZHMEWvXnvbfwgPA0uZINnMKLuN97nwKS2wXNKWWHFpmIhnzOjnsAsyhrmxIvN/SO24QJyaq3lGk1qWg9M3Ss2+eWMqK3snC38koRfQMw2Navyz7c06j/crlxtASjWSd5R8JUwqOf6HFP4nVCL+tm3fE9iwev5yM3FVauFKIEQVWKX8oPpIof/DVia6jvqbdeREW3iSxRU3zTqoizLSmQEklXXrdENcxBa5j/9oJfrtzGszqYp5ZIkm6NeJ5zpm3uGZJV7R5VY8BIbRYFnI1Il6OAeuULADZh2tq6MfvVLUImxPjltbrS+yiKHNnh5OIcgZBlbcX8f24CFdKAaOsQEVcUlfPFbhb7ZRDeua1I9WuTnkQpjsCd8/+Msklb/qvnReYLMTX0IU/6J/5Efxakl1CHOYkQt/+A"
-      }
+      "token": "{{ secrets.CIRCLECI }}"
     }
   ],
   "packageRules": [
