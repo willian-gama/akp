@@ -70,12 +70,6 @@
       ]
     },
     {
-      "groupName": "sonar",
-      "matchPackageNames": [
-        "/org.sonarqube/"
-      ]
-    },
-    {
       "groupName": "test dependencies",
       "matchPackageNames": [
         "/org.robolectric:robolectric/",
