@@ -26,6 +26,11 @@
       "matchHost": "maven.pkg.github.com",
       "hostType": "maven",
       "token": "{{ secrets.GPR_TOKEN }}"
+    },
+    {
+      "matchHost": "circleci.com",
+      "authType": "Token-Only",
+      "token": "{{ secrets.CIRCLECI }}"
     }
   ],
   "packageRules": [
@@ -60,12 +65,6 @@
         "/com.android.library/",
         "/com.android.application/",
         "/app.cash.paparazzi/"
-      ]
-    },
-    {
-      "groupName": "sonar",
-      "matchPackageNames": [
-        "/org.sonarqube/"
       ]
     },
     {
