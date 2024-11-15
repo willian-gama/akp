@@ -10,7 +10,7 @@ gradle = "8.10.2"
 compose-activity = "1.9.3"
 compose = "1.7.5"
 paging = "3.3.4"
-compose-coil = "2.7.0"
+compose-coil = "3.0.3"
 compose-navigation = "2.8.4"
 compose-hilt-navigation = "1.2.0"
 junit = "4.13.2"
@@ -52,7 +52,7 @@ compose-paging = { module = "androidx.paging:paging-compose", version.ref = "pag
 compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "compose-navigation" } # Navigation https://developer.android.com/jetpack/compose/navigation#setup
 compose-hilt-navigation = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "compose-hilt-navigation" } # Navigation with Hilt: https://developer.android.com/jetpack/compose/libraries#hilt-navigation
 compose-activity = { module = "androidx.activity:activity-compose", version.ref = "compose-activity" }
-compose-coil = { module = "io.coil-kt:coil-compose", version.ref = "compose-coil" }
+compose-coil = { module = "io.coil-kt.coil3:coil-compose", version.ref = "compose-coil" }
 code-analysis = { module = "com.willian.gama:kgp", version.ref = "code-analysis" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
 splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "splashscreen" } # Splash screen: https://developer.android.com/develop/ui/views/launch/splash-screen/migrate
@@ -85,5 +85,5 @@ test-runner = { module = "androidx.test:runner", version.ref = "test_runner" } #
 test-compose-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" } # https://developer.android.com/jetpack/compose/testing#setup
 test-compose-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose" }
 test-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" } # Coroutines: https://developer.android.com/kotlin/coroutines/test
-test-coil = { module = "io.coil-kt:coil-test", version.ref = "compose-coil" }
+test-coil = { module = "io.coil-kt.coil3:coil-test", version.ref = "compose-coil" }
 test-mockk-android = { module = "io.mockk:mockk-android", version.ref = "mockk" }
