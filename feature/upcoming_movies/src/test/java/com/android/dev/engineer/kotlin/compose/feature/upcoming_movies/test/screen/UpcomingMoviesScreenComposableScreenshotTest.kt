@@ -6,10 +6,10 @@ import androidx.paging.PagingData
 import androidx.paging.compose.collectAsLazyPagingItems
 import app.cash.paparazzi.DeviceConfig
 import app.cash.paparazzi.Paparazzi
-import coil.Coil
-import coil.ImageLoader
-import coil.annotation.ExperimentalCoilApi
-import coil.test.FakeImageLoaderEngine
+import coil3.Coil
+import coil3.ImageLoader
+import coil3.annotation.ExperimentalCoilApi
+import coil3.test.FakeImageLoaderEngine
 import com.android.dev.engineer.kotlin.compose.feature.upcoming_movies.UpcomingMoviesScreenComposable
 import com.android.dev.engineer.kotlin.compose.feature.upcoming_movies.coroutines.MainTestRule
 import com.android.dev.engineer.kotlin.compose.feature.upcoming_movies.fake.domain.MovieFake.createMovieItem
