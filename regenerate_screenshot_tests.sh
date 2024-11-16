@@ -9,6 +9,17 @@ else
   exit 1
 fi
 
+check_one_file_is_changed() {
+  total_changed_files=$(git diff --name-status | wc -l)
+  file_changed=$(git diff --name-status | grep -c "$FILE")
+
+  if [ "$total_changed_files" -eq 1 ] && [ "$file_changed" -eq 1 ]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
 get_current_version_number() {
   local content="$1"
   if [[ "$content" =~ paparazzi\ *=\ *\"([0-9]+\.[0-9]+\.[0-9]+)\" ]]; then
@@ -26,24 +37,16 @@ compare_versions() {
   IFS="." read -r local_major local_minor local_patch <<< "$local_version"
   IFS="." read -r remote_major remote_minor remote_patch <<< "$remote_version"
 
-  if [ "$local_major" -gt "$remote_major" ] || [ "$local_minor" -gt "$remote_minor" ] || [ "$local_patch" -gt "$remote_patch" ]; then
-    return 1
+  echo "comparing local version: $local_version and remote version $remote_version"
+
+  if [ "$local_major" -ne "$remote_major" ] || [ "$local_minor" -ne "$remote_minor" ] || [ "$local_patch" -ne "$remote_patch" ]; then
+      return 0
   else
-    return 0
+      return 1
   fi
 }
 
-bump_remote_version() {
-  local remote_version=$1
-  IFS='.' read -r major minor patch <<< "$remote_version"
-  echo "$major.$minor.$((patch + 1))"
-}
-
 push_screenshots_to_git() {
-  local commit_message="auto bump version from $local_version to $new_local_version"
-
-  echo "$commit_message"
-
   if [ -z "$(git config --get user.name)" ]; then
     git config user.name "renovate[bot]"
   fi
@@ -52,15 +55,24 @@ push_screenshots_to_git() {
     git config user.email "29139614+renovate[bot]@users.noreply.github.com"
   fi
 
+  git config --add --bool push.autoSetupRemote true # create a new branch automatically
   git add "**/test/snapshots/images/*"
-  if ! git commit -m "$commit_message"; then
-    echo "Error when committing the file $FILE"
-    exit 1
+
+  if git diff --cached --name-status | grep -qE ".*/test/snapshots/images/.*"; then
+    local commit_message="regenerating screenshot tests"
+    echo "$commit_message"
+
+    if ! git commit -m "$commit_message"; then
+      echo "Error when committing the file $FILE"
+      exit 1
+    fi
+    git push
+  else
+    echo "No screenshot tests changes detected"
   fi
-  git push
 }
 
-check_paparazzi_version() {
+regenerate_paparazzi_screenshots_if_needed() {
   if ! local_file_content=$(cat "$FILE" 2>/dev/null); then
     echo "Local file $FILE could not be found"
     return 1
@@ -82,11 +94,15 @@ check_paparazzi_version() {
   fi
 
   if compare_versions "$local_version" "$remote_version" -eq 0; then
-    ./gradlew recordPaparazziDebug
+    ./gradlew cleanRecordPaparazziDebug
     push_screenshots_to_git
   else
-    echo "local paparazzi version: $local_version is already greater than remote version: $remote_version"
+    echo "paparazzi version not changed"
   fi
 }
 
-check_paparazzi_version
+if check_one_file_is_changed -eq 0; then
+  regenerate_paparazzi_screenshots_if_needed
+else
+  echo "$FILE not changed"
+fi
