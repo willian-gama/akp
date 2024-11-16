@@ -6,10 +6,12 @@ import androidx.paging.PagingData
 import androidx.paging.compose.collectAsLazyPagingItems
 import app.cash.paparazzi.DeviceConfig
 import app.cash.paparazzi.Paparazzi
-import coil3.Coil
 import coil3.ImageLoader
-import coil3.annotation.ExperimentalCoilApi
+import coil3.SingletonImageLoader
+import coil3.annotation.DelicateCoilApi
+import coil3.test.FakeImage
 import coil3.test.FakeImageLoaderEngine
+import coil3.test.intercept
 import com.android.dev.engineer.kotlin.compose.feature.upcoming_movies.UpcomingMoviesScreenComposable
 import com.android.dev.engineer.kotlin.compose.feature.upcoming_movies.coroutines.MainTestRule
 import com.android.dev.engineer.kotlin.compose.feature.upcoming_movies.fake.domain.MovieFake.createMovieItem
@@ -27,8 +29,8 @@ private val MOVIES = List(size = 15) {
     createMovieItem(posterPath = MOVIE_POSTER)
 }
 
+@DelicateCoilApi
 @ExperimentalCoroutinesApi
-@ExperimentalCoilApi
 class UpcomingMoviesScreenComposableScreenshotTest {
     @get:Rule
     val paparazzi = Paparazzi(
@@ -47,11 +49,11 @@ class UpcomingMoviesScreenComposableScreenshotTest {
             .intercept(data = MOVIE_POSTER, drawable = ColorDrawable(Color.GREEN))
             .build()
         val imageLoader = ImageLoader.Builder(paparazzi.context)
-            .error(ColorDrawable(Color.RED))
+            .error(FakeImage(Color.RED))
             .components { add(engine) }
-            .dispatcher(dispatcher = mainTestRule.testDispatcher)
+            .coroutineContext(mainTestRule.testDispatcher)
             .build()
-        Coil.setImageLoader(imageLoader)
+        SingletonImageLoader.setUnsafe(imageLoader)
     }
 
     @Test
@@ -60,7 +62,9 @@ class UpcomingMoviesScreenComposableScreenshotTest {
         paparazzi.snapshot {
             KotlinComposeAppTheme {
                 UpcomingMoviesScreenComposable(
-                    lazyPagingItems = pagingData.collectAsLazyPagingItems(mainTestRule.testDispatcher),
+                    lazyPagingItems = pagingData.collectAsLazyPagingItems(
+                        context = mainTestRule.testDispatcher
+                    ),
                     columnSize = 3,
                     onClickMovie = {}
                 )
