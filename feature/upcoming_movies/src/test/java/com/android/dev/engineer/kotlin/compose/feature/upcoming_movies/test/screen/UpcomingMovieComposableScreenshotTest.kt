@@ -1,15 +1,15 @@
-@file:OptIn(ExperimentalCoroutinesApi::class)
-
 package com.android.dev.engineer.kotlin.compose.feature.upcoming_movies.test.screen
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import app.cash.paparazzi.DeviceConfig
 import app.cash.paparazzi.Paparazzi
-import coil.Coil
-import coil.ImageLoader
-import coil.annotation.ExperimentalCoilApi
-import coil.test.FakeImageLoaderEngine
+import coil3.ImageLoader
+import coil3.SingletonImageLoader
+import coil3.annotation.DelicateCoilApi
+import coil3.test.FakeImage
+import coil3.test.FakeImageLoaderEngine
+import coil3.test.intercept
 import com.android.dev.engineer.kotlin.compose.feature.upcoming_movies.UpcomingMovieComposable
 import com.android.dev.engineer.kotlin.compose.feature.upcoming_movies.coroutines.MainTestRule
 import com.android.dev.engineer.kotlin.compose.feature.upcoming_movies.fake.domain.MovieFake.createMovieItem
@@ -23,8 +23,8 @@ import org.junit.Test
 
 private const val MOVIE_POSTER = "https://www.example.com/image.jpg"
 
+@DelicateCoilApi
 @ExperimentalCoroutinesApi
-@ExperimentalCoilApi
 class UpcomingMovieComposableScreenshotTest {
     @get:Rule
     val paparazzi = Paparazzi(
@@ -42,12 +42,12 @@ class UpcomingMovieComposableScreenshotTest {
         val engine = FakeImageLoaderEngine.Builder()
             .intercept(data = MOVIE_POSTER, drawable = ColorDrawable(Color.GREEN))
             .build()
-        val imageLoader = ImageLoader.Builder(paparazzi.context)
-            .error(ColorDrawable(Color.RED))
-            .components { add(engine) }
-            .dispatcher(dispatcher = mainTestRule.testDispatcher)
+        val imageLoader = ImageLoader.Builder(context = paparazzi.context)
+            .error(FakeImage(color = Color.RED))
+            .components { add(interceptor = engine) }
+            .coroutineContext(context = mainTestRule.testDispatcher)
             .build()
-        Coil.setImageLoader(imageLoader)
+        SingletonImageLoader.setUnsafe(imageLoader = imageLoader)
     }
 
     @Test
