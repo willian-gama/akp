@@ -6,11 +6,7 @@ orbs:
 workflows:
   build_and_test:
     jobs:
-      - automation/android_setup:
-          filters:
-            branches:
-              only:
-                - /chore\/.*/
+      - automation/android_setup
       - automation/unit_tests:
           build_variant: debug
           parallelism: 2
