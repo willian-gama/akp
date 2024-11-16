@@ -42,12 +42,12 @@ class UpcomingMovieComposableScreenshotTest {
         val engine = FakeImageLoaderEngine.Builder()
             .intercept(data = MOVIE_POSTER, drawable = ColorDrawable(Color.GREEN))
             .build()
-        val imageLoader = ImageLoader.Builder(paparazzi.context)
-            .error(FakeImage(Color.RED))
-            .components { add(engine) }
-            .coroutineContext(mainTestRule.testDispatcher)
+        val imageLoader = ImageLoader.Builder(context = paparazzi.context)
+            .error(FakeImage(color = Color.RED))
+            .components { add(interceptor = engine) }
+            .coroutineContext(context = mainTestRule.testDispatcher)
             .build()
-        SingletonImageLoader.setUnsafe(imageLoader)
+        SingletonImageLoader.setUnsafe(imageLoader = imageLoader)
     }
 
     @Test
