@@ -2,8 +2,8 @@
 [versions]
 android = "8.7.2"
 androidx-junit = "1.2.1"
-kotlin = "2.0.21"
-ksp = "2.0.21-1.0.28"
+kotlin = "2.1.0"
+ksp = "2.1.0-1.0.29"
 code-analysis = "1.0.37"
 paparazzi = "1.3.5"
 gradle = "8.10.2"
