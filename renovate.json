@@ -60,11 +60,12 @@
       ]
     },
     {
-      "groupName": "plugin dependencies",
+      "groupName": "screenshot test dependencies",
       "matchPackageNames": [
         "/com.android.library/",
         "/com.android.application/",
-        "/app.cash.paparazzi/"
+        "/app.cash.paparazzi/",
+        "/io.coil-kt.coil3:*/"
       ]
     },
     {
